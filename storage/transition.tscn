@@ -10,7 +10,7 @@ shader_parameter/use_transition_texture = false
 shader_parameter/transition_type = 0
 shader_parameter/position = Vector2(0.5, 0.5)
 shader_parameter/invert = false
-shader_parameter/grid_size = Vector2(5, 5)
+shader_parameter/grid_size = Vector2(7, 7)
 shader_parameter/rotation_angle = 0.0
 shader_parameter/global_x_mirror = false
 shader_parameter/global_y_mirror = false
@@ -21,14 +21,14 @@ shader_parameter/cumulative_stagger_flip = false
 shader_parameter/cumulative_stagger = Vector2(0, 0)
 shader_parameter/stagger_frequency = Vector2i(2, 2)
 shader_parameter/flip_frequency = Vector2i(1, 1)
-shader_parameter/basic_feather = 1.0
+shader_parameter/basic_feather = 0.1
 shader_parameter/use_mask_size = false
 shader_parameter/mask_size = Vector2(100, 100)
 shader_parameter/edges = 6
 shader_parameter/shape_feather = 0.10000000475
 shader_parameter/sectors = 1
 shader_parameter/clock_feather = 0.0
-shader_parameter/progress = -0.305
+shader_parameter/progress = 9.485
 shader_parameter/progress_bias = Vector2(10, 10)
 
 [sub_resource type="Animation" id="Animation_pbcqo"]
@@ -55,7 +55,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.305]
+"values": [9.485]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shader:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_w2ih6"]
@@ -70,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -82,7 +94,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-1.0, 1.0]
+"values": [0.0, 13.1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shader:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, -1]
 }
 
 [sub_resource type="Animation" id="Animation_pn22o"]
@@ -109,7 +133,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, -1.0]
+"values": [13.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfccf"]
@@ -130,7 +154,7 @@ offset_top = 720.0
 offset_right = 2560.0
 offset_bottom = 1440.0
 rotation = 3.1415927
-mouse_filter = 1
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=1513752638]
