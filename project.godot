@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://cnk2finrjctea"
 Shortcuts="*uid://ce0s12mq2ax81"
 Utilities="*uid://cj4c62ilw838c"
 Gameplay="*uid://cc1rvm0kd37t4"
+Transition="*uid://c3sriynmxlqhe"
 
 [display]
 
