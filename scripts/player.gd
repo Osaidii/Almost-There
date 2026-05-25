@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
+	print(Engine.get_frames_per_second())
 	# Movement System
 	var input_dir: Vector2
 	if CAN_CONTROL:
