@@ -126,6 +126,91 @@ size = Vector3(16.30192, 5.0664673, 0.001)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5b65k"]
 size = Vector3(4.8121033, 3.1572266, 2.697029)
 
+[sub_resource type="Animation" id="Animation_ua7vj"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Entity:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Entity:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.2745667, -0.27787566, -53.97961)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Entity:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.43106142)]
+}
+
+[sub_resource type="Animation" id="Animation_4wxng"]
+resource_name = "hide"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Entity:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Entity:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.2745667, -0.27787566, -53.97961), Vector3(3.725, -0.278, -53.98)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Entity:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.43106142), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vju4q"]
+_data = {
+&"RESET": SubResource("Animation_ua7vj"),
+&"hide": SubResource("Animation_4wxng")
+}
+
 [sub_resource type="Animation" id="Animation_lf0kl"]
 length = 0.001
 tracks/0/type = "value"
@@ -1536,6 +1621,9 @@ transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.961
 transform = Transform3D(0.21804546, 0.100280486, 0, -0.100280486, 0.21804546, 0, 0, 0, 0.23999998, 4.2745667, -0.27787566, -53.97961)
 visible = false
 texture = ExtResource("6_lf0kl")
+
+[node name="Animation" type="AnimationPlayer" parent="Part 1/Scare" unique_id=986809453]
+libraries/ = SubResource("AnimationLibrary_vju4q")
 
 [node name="Cutscene" type="AnimationPlayer" parent="." unique_id=89606268]
 libraries/ = SubResource("AnimationLibrary_lf0kl")
