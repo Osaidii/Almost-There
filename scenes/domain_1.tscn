@@ -124,7 +124,7 @@ size = Vector3(0.001, 0.9121094, 0.20269775)
 size = Vector3(16.30192, 5.0664673, 0.001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5b65k"]
-size = Vector3(4.8121033, 3.1572266, 2.697029)
+size = Vector3(10.736656, 3.1572266, 3.3815956)
 
 [sub_resource type="Animation" id="Animation_ua7vj"]
 resource_name = "RESET"
@@ -1597,14 +1597,7 @@ script = ExtResource("5_lf0kl")
 [node name="Scare Check" type="Area3D" parent="Part 1/Scare" unique_id=2068070614]
 
 [node name="Collision" type="CollisionShape3D" parent="Part 1/Scare/Scare Check" unique_id=1573579269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5542908, -0.46533203, -0.19496155)
-shape = SubResource("BoxShape3D_5b65k")
-
-[node name="Exit" type="Area3D" parent="Part 1/Scare" unique_id=1108005955]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41667175, 0, -11.802391)
-
-[node name="Collision" type="CollisionShape3D" parent="Part 1/Scare/Exit" unique_id=2133154209]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8989105, -0.46533203, 0.80296326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5165634, -0.46533203, 0.14732361)
 shape = SubResource("BoxShape3D_5b65k")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Part 1/Scare" unique_id=1314484880]
@@ -1658,7 +1651,6 @@ offset_bottom = 735.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Part 1/Scare/Scare Check" to="Part 1/Scare" method="_on_scare_check_body_entered"]
-[connection signal="body_entered" from="Part 1/Scare/Exit" to="Part 1/Scare" method="_on_exit_body_entered"]
 [connection signal="screen_entered" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_exited"]
 
