@@ -5,11 +5,11 @@ extends CharacterBody3D
 @export var SPEED := 4.0
 @export var CROUCH_SPEED := 2.2
 @export var SENSITIVITY := 0.003
-@export var CAN_CONTROL := true
 @export_category("Head Bob")
 @export var BOB_FREQ := 2.2
 @export var BOB_AMP := 0.08
 @export_category("Enables")
+@export var CAN_CONTROL := true
 @export var FLASH_LIGHT_UNLOCKED := true
 @export var SHOW_HUD := true
 @export var DISABLE_CRT_SHADER := false
