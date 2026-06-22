@@ -6,6 +6,8 @@ const DOMAIN_1 = preload("res://scenes/domain_1.tscn") as PackedScene
 func _ready() -> void:
 	Transition.reset()
 	await get_tree().create_timer(1.0).timeout
+	cutscene.play("foreshadowing")
+	await get_tree().create_timer(7.0).timeout
 	cutscene.play("cutscene")
 
 func _on_cutscene_animation_finished(anim_name: StringName) -> void:

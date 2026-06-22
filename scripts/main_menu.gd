@@ -13,7 +13,7 @@ const CREDITS = preload("res://ui/credits.tscn") as PackedScene
 @onready var song: AudioStreamPlayer = $Song
 
 func _ready() -> void:
-	Transition.scene_in()
+	Transition.reset()
 
 # For Debugging, Buttons to go all scenes, hehe boi! work smart not hard!
 
@@ -46,6 +46,6 @@ func _on_play_pressed() -> void:
 	Transition.scene_out()
 	var tween = get_tree().create_tween()
 	tween.tween_property(song, "volume_db", -10, 0.0)
-	tween.tween_property(song, "volume_db", -80, 2.0)
-	await get_tree().create_timer(2.5).timeout
+	tween.tween_property(song, "volume_db", -80, 3.0)
+	await get_tree().create_timer(3.5).timeout
 	get_tree().change_scene_to_packed(INTRO)
