@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qh6rs5yu6q84"]
 
 [ext_resource type="Script" uid="uid://brfcodvclomfe" path="res://scripts/credits.gd" id="1_ed0b0"]
-[ext_resource type="FontFile" uid="uid://6xfiv2ax3sjv" path="res://assets/Font.ttf" id="2_orljq"]
+[ext_resource type="FontFile" uid="uid://6xfiv2ax3sjv" path="res://assets/Scary Font.ttf" id="2_orljq"]
 
 [sub_resource type="Animation" id="Animation_orljq"]
 length = 0.001

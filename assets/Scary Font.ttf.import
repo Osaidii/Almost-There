@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://6xfiv2ax3sjv"
-path="res://.godot/imported/Font.ttf-a5affbe7284e77d32e1a522160be5d8d.fontdata"
+path="res://.godot/imported/Scary Font.ttf-ef2093dc2f2d74fe76e668e952a0fa72.fontdata"
 
 [deps]
 
-source_file="res://assets/Font.ttf"
-dest_files=["res://.godot/imported/Font.ttf-a5affbe7284e77d32e1a522160be5d8d.fontdata"]
+source_file="res://assets/Scary Font.ttf"
+dest_files=["res://.godot/imported/Scary Font.ttf-ef2093dc2f2d74fe76e668e952a0fa72.fontdata"]
 
 [params]
 
