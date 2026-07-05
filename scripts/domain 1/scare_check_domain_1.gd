@@ -12,7 +12,6 @@ var played := false
 @onready var animation: AnimationPlayer = $Animation
 
 func _process(delta: float) -> void:
-	print(entity.visible)
 	if in_range:
 		wall_23.visible = false
 		wall_24.visible = false

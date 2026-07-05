@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://luq258vtismx" path="res://icon.svg" id="1_j5qlv"]
 [ext_resource type="PackedScene" uid="uid://bgu81rrpf1ilt" path="res://scenes/player.tscn" id="2_tsj3k"]
-[ext_resource type="PackedScene" uid="uid://bap4ot0hv5ac3" path="res://level building/opening_wall.tscn" id="3_87bca"]
+[ext_resource type="PackedScene" uid="uid://bap4ot0hv5ac3" path="res://level building/domain 1/opening_wall.tscn" id="3_87bca"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xarq3"]
 albedo_texture = ExtResource("1_j5qlv")

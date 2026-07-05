@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dw4hlf8g0xwx1"]
 
 [ext_resource type="Texture2D" uid="uid://rwgk2e8vuxhd" path="res://assets/Flashlight/FlashLight_and_Battery_battery_base_color.png" id="1_bavnn"]
-[ext_resource type="Script" uid="uid://di1bi6d7e7frl" path="res://scripts/battery.gd" id="1_ytmnr"]
+[ext_resource type="Script" uid="uid://di1bi6d7e7frl" path="res://scripts/domain 2/battery.gd" id="1_ytmnr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxyhm"]
 resource_name = "Battery"

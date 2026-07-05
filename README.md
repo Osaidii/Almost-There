@@ -10,5 +10,3 @@ The game revolvs around a person who arrives for a job interview in a lonely and
 
 ## Disclosure 
 A little bit of ai was used in the development of this game.  
-
-

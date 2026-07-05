@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://biwkksmseyy04"]
 
-[ext_resource type="Script" uid="uid://ci5yrfiogfst8" path="res://scripts/domain_1.gd" id="1_ua7vj"]
+[ext_resource type="Script" uid="uid://ci5yrfiogfst8" path="res://scripts/domain 1/domain_1.gd" id="1_ua7vj"]
 [ext_resource type="PackedScene" uid="uid://bgu81rrpf1ilt" path="res://scenes/player.tscn" id="2_w6yah"]
-[ext_resource type="PackedScene" uid="uid://duxk6ybnltcoa" path="res://level building/wall_1.tscn" id="2_wlb4j"]
-[ext_resource type="PackedScene" uid="uid://dyyrjwodyaf1i" path="res://level building/appearing_wall.tscn" id="4_h7lqk"]
-[ext_resource type="PackedScene" uid="uid://bap4ot0hv5ac3" path="res://level building/opening_wall.tscn" id="5_be7q5"]
-[ext_resource type="Script" uid="uid://dkedja36adh8d" path="res://scripts/scare_check_domain_1.gd" id="5_lf0kl"]
+[ext_resource type="PackedScene" uid="uid://duxk6ybnltcoa" path="res://level building/domain 1/wall_1.tscn" id="2_wlb4j"]
+[ext_resource type="PackedScene" uid="uid://dyyrjwodyaf1i" path="res://level building/domain 1/appearing_wall.tscn" id="4_h7lqk"]
+[ext_resource type="PackedScene" uid="uid://bap4ot0hv5ac3" path="res://level building/domain 1/opening_wall.tscn" id="5_be7q5"]
+[ext_resource type="Script" uid="uid://dkedja36adh8d" path="res://scripts/domain 1/scare_check_domain_1.gd" id="5_lf0kl"]
 [ext_resource type="Texture2D" uid="uid://jiyrclk0y8q0" path="res://assets/Domain 1/scare_entity.png" id="6_lf0kl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wlb4j"]
