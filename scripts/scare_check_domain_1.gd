@@ -12,6 +12,12 @@ var played := false
 @onready var animation: AnimationPlayer = $Animation
 
 func _process(delta: float) -> void:
+	print(entity.visible)
+	if in_range:
+		wall_23.visible = false
+		wall_24.visible = false
+		wall_25.visible = false
+		wall_26.visible = false
 	if in_range and looking and !played:
 		played = true
 		animation.play("hide")
@@ -26,11 +32,3 @@ func _on_scare_check_body_entered(body: Node3D) -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	looking = true
-
-func _on_near_range(body: Node3D) -> void:
-	if body is Player:
-		visible = true
-
-func _on_animation_not_triggered_destroy(body: Node3D) -> void:
-	if body is Player and !played and visible:
-		in_range = true

@@ -115,20 +115,23 @@ size = Vector3(0.001, 0.9121094, 0.43679333)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pshx4"]
 size = Vector3(24.436169, 4.691025, 0.001)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_muruv"]
-size = Vector3(1, 0.8105469, 0.27992368)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gt8y"]
+size = Vector3(0.001, 0.9121094, 0.20082092)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_s7yx7"]
-size = Vector3(0.001, 0.9121094, 0.20269775)
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8l4p"]
+size = Vector3(1, 0.8105469, 0.36408293)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3unw"]
 size = Vector3(16.30192, 5.0664673, 0.001)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mb5e8"]
-size = Vector3(16.28597, 3.1572266, 4.817436)
+[sub_resource type="BoxShape3D" id="BoxShape3D_muruv"]
+size = Vector3(1, 0.8105469, 0.2836386)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5b65k"]
-size = Vector3(5.133465, 3.1572266, 0.7787485)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7yx7"]
+size = Vector3(0.001, 0.9121094, 0.20269775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mb5e8"]
+size = Vector3(4.8314085, 3.1572266, 2.5853643)
 
 [sub_resource type="Animation" id="Animation_ua7vj"]
 resource_name = "RESET"
@@ -171,7 +174,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4wxng"]
 resource_name = "hide"
-length = 0.8
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,7 +182,7 @@ tracks/0/path = NodePath("Entity:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.76666665),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -188,25 +191,25 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Entity:position")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.76666665),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.73333335, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(4.2745667, -0.27787566, -53.97961), Vector3(3.725, -0.278, -53.98)]
+"values": [Vector3(3.725, -0.278, -53.98), Vector3(4.2745667, -0.27787566, -53.97961), Vector3(3.725, -0.278, -53.98)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Entity:rotation")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.76666665),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.73333335, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -0.43106142), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.43106142), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vju4q"]
@@ -214,6 +217,9 @@ _data = {
 &"RESET": SubResource("Animation_ua7vj"),
 &"hide": SubResource("Animation_4wxng")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5b65k"]
+size = Vector3(5.133465, 3.1572266, 0.7787485)
 
 [sub_resource type="Animation" id="Animation_lf0kl"]
 length = 0.001
@@ -1492,23 +1498,32 @@ mesh = SubResource("BoxMesh_ua7vj")
 [node name="Hallway 7" type="Node3D" parent="Part 1" unique_id=835372778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.634, -0.003, 108.16)
 
-[node name="Wall 1" type="Node3D" parent="Part 1/Hallway 7" unique_id=725194318]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.9351606, 0, -1.7027352)
+[node name="Wall 1" type="Node3D" parent="Part 1/Hallway 7" unique_id=2075798767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30024338, 0, -4.1324997)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 7/Wall 1" unique_id=1956540860]
+[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 7/Wall 1" unique_id=1787381318]
 transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
 
-[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 7/Wall 1/StaticBody3D" unique_id=1268444162]
-transform = Transform3D(0.9999998, 0, 0, 0, 1.0000669, 0, 6.938894e-17, 0, 0.9999999, -286.25195, 0, -0.45296454)
-shape = SubResource("BoxShape3D_egqab")
+[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 7/Wall 1/StaticBody3D" unique_id=142825616]
+transform = Transform3D(0.99990636, 0, 1.8189894e-12, 0, 1, 0, 3.400058e-16, 0, 0.99991745, 2.7763062, -0.043945313, 0.31818968)
+shape = SubResource("BoxShape3D_2gt8y")
 
-[node name="Meshes" type="Node3D" parent="Part 1/Hallway 7/Wall 1" unique_id=98573388]
+[node name="Meshes" type="Node3D" parent="Part 1/Hallway 7/Wall 1" unique_id=1994016984]
 
-[node name="Wall 28" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=1962693446 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, -1.135, 0, 1.135, 0, 1.135, 0, -4.9612424e-08, -1.0217514, 1.1966858, 43.634575)
+[node name="Wall 19" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=1467992272 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 37.027927, 1.1936858, 2.1865218)
 
-[node name="Wall 29" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=758266617 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, -1.135, 0, 1.135, 0, 1.135, 0, -4.9612424e-08, -3.2773972, 1.1966858, 43.634575)
+[node name="Wall 20" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=1018666192 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 39.285576, 1.1936858, 2.1865218)
+
+[node name="Wall 21" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=984172691 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 41.550606, 1.1936858, 2.1865218)
+
+[node name="Wall 22" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=2135875481 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 43.787247, 1.1936858, 2.1865218)
+
+[node name="Wall 23" parent="Part 1/Hallway 7/Wall 1/Meshes" unique_id=774560944 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 46.068554, 1.1936858, 2.1865218)
 
 [node name="Wall 2" type="Node3D" parent="Part 1/Hallway 7" unique_id=717931488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.36598313)
@@ -1517,8 +1532,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.36598313)
 transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
 
 [node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 7/Wall 2/StaticBody3D" unique_id=376309671]
-transform = Transform3D(0.999895, 0, 1.8189894e-12, 0, 1, 0, 3.400058e-16, 0, 0.9999074, 0.6525879, -0.04492122, 0.36119944)
-shape = SubResource("BoxShape3D_muruv")
+transform = Transform3D(0.99988806, 0, 0, 0, 1, 0, 4.0939474e-16, 0, 0.9999013, 0.6525879, -0.04492122, 0.31912357)
+shape = SubResource("BoxShape3D_w8l4p")
 
 [node name="Meshes" type="Node3D" parent="Part 1/Hallway 7/Wall 2" unique_id=1608534694]
 
@@ -1531,6 +1546,12 @@ transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.961
 [node name="Wall 21" parent="Part 1/Hallway 7/Wall 2/Meshes" unique_id=839111042 instance=ExtResource("2_wlb4j")]
 transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 41.550606, 1.1936858, 2.1865218)
 
+[node name="Wall 27" parent="Part 1/Hallway 7/Wall 2/Meshes" unique_id=2096843157 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 32.480408, 1.1936858, 2.1865234)
+
+[node name="Wall 28" parent="Part 1/Hallway 7/Wall 2/Meshes" unique_id=161254686 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 34.745438, 1.1936858, 2.1865234)
+
 [node name="Wall 22" parent="Part 1/Hallway 7/Wall 2/Meshes" unique_id=1381048293 instance=ExtResource("2_wlb4j")]
 transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 43.787247, 1.1936858, 2.1865218)
 
@@ -1542,33 +1563,6 @@ transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.961
 
 [node name="Wall 25" parent="Part 1/Hallway 7/Wall 2/Meshes" unique_id=858944585 instance=ExtResource("2_wlb4j")]
 transform = Transform3D(-4.9612424e-08, 0, 1.220319, 0, 1.135, 0, -1.135, 0, -5.334184e-08, 50.680687, 1.1936858, 2.186522)
-
-[node name="Wall 3" type="Node3D" parent="Part 1/Hallway 7" unique_id=2075798767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30024362, 0, -4.132497)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 7/Wall 3" unique_id=1787381318]
-transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
-
-[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 7/Wall 3/StaticBody3D" unique_id=142825616]
-transform = Transform3D(0.99993587, 0, 1.8189894e-12, 0, 1, 0, 2.289835e-16, 0, 0.99994344, 2.7763062, -0.043945313, 0.31725198)
-shape = SubResource("BoxShape3D_s7yx7")
-
-[node name="Meshes" type="Node3D" parent="Part 1/Hallway 7/Wall 3" unique_id=1994016984]
-
-[node name="Wall 19" parent="Part 1/Hallway 7/Wall 3/Meshes" unique_id=1467992272 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 37.027927, 1.1936858, 2.1865218)
-
-[node name="Wall 20" parent="Part 1/Hallway 7/Wall 3/Meshes" unique_id=1018666192 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 39.285576, 1.1936858, 2.1865218)
-
-[node name="Wall 21" parent="Part 1/Hallway 7/Wall 3/Meshes" unique_id=984172691 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 41.550606, 1.1936858, 2.1865218)
-
-[node name="Wall 22" parent="Part 1/Hallway 7/Wall 3/Meshes" unique_id=2135875481 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 43.787247, 1.1936858, 2.1865218)
-
-[node name="Wall 23" parent="Part 1/Hallway 7/Wall 3/Meshes" unique_id=774560944 instance=ExtResource("2_wlb4j")]
-transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 46.068554, 1.1936858, 2.1865218)
 
 [node name="Roof" type="Node3D" parent="Part 1/Hallway 7" unique_id=1103624976]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 29.284756, 4.5123234, -0.42837524)
@@ -1592,29 +1586,119 @@ transform = Transform3D(17.216425, 0, 0, 0, 4.976886, 1.7763568e-15, 0, 0, 0.177
 material_override = SubResource("StandardMaterial3D_4wxng")
 mesh = SubResource("BoxMesh_ua7vj")
 
+[node name="Hallway 8" type="Node3D" parent="Part 1" unique_id=777302500]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 53.893, -0.003, 58.794)
+
+[node name="Wall 1" type="Node3D" parent="Part 1/Hallway 8" unique_id=1688643575]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.9351606, 0, -1.7027352)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 8/Wall 1" unique_id=1428150007]
+transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
+
+[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 8/Wall 1/StaticBody3D" unique_id=1984895029]
+transform = Transform3D(0.9999998, 0, 0, 0, 1.0000669, 0, 6.938894e-17, 0, 0.9999999, -286.25195, 0, -0.45296454)
+shape = SubResource("BoxShape3D_egqab")
+
+[node name="Meshes" type="Node3D" parent="Part 1/Hallway 8/Wall 1" unique_id=812038844]
+
+[node name="Wall 28" parent="Part 1/Hallway 8/Wall 1/Meshes" unique_id=2084435945 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, -1.135, 0, 1.135, 0, 1.135, 0, -4.9612424e-08, -1.0217514, 1.1966858, 43.634575)
+
+[node name="Wall 29" parent="Part 1/Hallway 8/Wall 1/Meshes" unique_id=1264860738 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, -1.135, 0, 1.135, 0, 1.135, 0, -4.9612424e-08, -3.2773972, 1.1966858, 43.634575)
+
+[node name="Wall 2" type="Node3D" parent="Part 1/Hallway 8" unique_id=1005448656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.36598313)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 8/Wall 2" unique_id=779034767]
+transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
+
+[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 8/Wall 2/StaticBody3D" unique_id=622271]
+transform = Transform3D(0.9998952, 0, -1.8189894e-12, 0, 1.0000081, 0, 3.7470027e-16, 0, 0.9999075, 0.6525879, -0.04492122, 0.36305678)
+shape = SubResource("BoxShape3D_muruv")
+
+[node name="Meshes" type="Node3D" parent="Part 1/Hallway 8/Wall 2" unique_id=438659019]
+
+[node name="Wall 19" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1504350032 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 37.027927, 1.1936858, 2.1865218)
+
+[node name="Wall 20" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1071240454 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 39.285576, 1.1936858, 2.1865218)
+
+[node name="Wall 21" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1967334592 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 41.550606, 1.1936858, 2.1865218)
+
+[node name="Wall 22" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1766990660 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 43.787247, 1.1936858, 2.1865218)
+
+[node name="Wall 23" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1055497412 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 46.068554, 1.1936858, 2.1865218)
+
+[node name="Wall 24" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=1579299428 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 48.326206, 1.1936858, 2.1865218)
+
+[node name="Wall 25" parent="Part 1/Hallway 8/Wall 2/Meshes" unique_id=503176213 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.220319, 0, 1.135, 0, -1.135, 0, -5.334184e-08, 50.680687, 1.1936858, 2.186522)
+
+[node name="Wall 3" type="Node3D" parent="Part 1/Hallway 8" unique_id=460443032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30024362, 0, -4.132497)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 8/Wall 3" unique_id=1185488918]
+transform = Transform3D(-6.2944396e-09, 0, 56.601, 0, 3.974, 0, -0.144, 0, -2.4741084e-06, 23.533346, 2.9744167, 2.4668355)
+
+[node name="Collision" type="CollisionShape3D" parent="Part 1/Hallway 8/Wall 3/StaticBody3D" unique_id=1407312642]
+transform = Transform3D(0.99993587, 0, 1.8189894e-12, 0, 1, 0, 2.289835e-16, 0, 0.99994344, 2.7763062, -0.043945313, 0.31725198)
+shape = SubResource("BoxShape3D_s7yx7")
+
+[node name="Meshes" type="Node3D" parent="Part 1/Hallway 8/Wall 3" unique_id=1294495159]
+
+[node name="Wall 19" parent="Part 1/Hallway 8/Wall 3/Meshes" unique_id=631351498 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 37.027927, 1.1936858, 2.1865218)
+
+[node name="Wall 20" parent="Part 1/Hallway 8/Wall 3/Meshes" unique_id=53394866 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 39.285576, 1.1936858, 2.1865218)
+
+[node name="Wall 21" parent="Part 1/Hallway 8/Wall 3/Meshes" unique_id=963262427 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 41.550606, 1.1936858, 2.1865218)
+
+[node name="Wall 22" parent="Part 1/Hallway 8/Wall 3/Meshes" unique_id=1962946122 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 43.787247, 1.1936858, 2.1865218)
+
+[node name="Wall 23" parent="Part 1/Hallway 8/Wall 3/Meshes" unique_id=985541503 instance=ExtResource("2_wlb4j")]
+transform = Transform3D(-4.9612424e-08, 0, 1.135, 0, 1.135, 0, -1.135, 0, -4.9612424e-08, 46.068554, 1.1936858, 2.1865218)
+
+[node name="Roof" type="Node3D" parent="Part 1/Hallway 8" unique_id=1035700723]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 29.284756, 4.5123234, -0.42837524)
+
+[node name="Mesh" type="MeshInstance3D" parent="Part 1/Hallway 8/Roof" unique_id=1895653804]
+transform = Transform3D(18.972576, 0, 0, 0, 4.976886, 1.7763568e-15, 0, 0, 0.17714688, 14.898979, -0.60363007, -0.044437885)
+material_override = SubResource("StandardMaterial3D_be7q5")
+mesh = SubResource("BoxMesh_ua7vj")
+
+[node name="Floor" type="Node3D" parent="Part 1/Hallway 8" unique_id=165496351]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 29.284752, 1.3033378, 1.8263321)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Part 1/Hallway 8/Floor" unique_id=1891024260]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Part 1/Hallway 8/Floor/StaticBody3D" unique_id=945327830]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, -5.684342e-14, 0, 7.460699e-14, 0.99999934, 14.639114, 1.5269432, 0.022030354)
+shape = SubResource("BoxShape3D_e3unw")
+
+[node name="Mesh" type="MeshInstance3D" parent="Part 1/Hallway 8/Floor" unique_id=1320773015]
+transform = Transform3D(17.216425, 0, 0, 0, 4.976886, 1.7763568e-15, 0, 3.0935726e-23, 0.17714688, 14.175034, 1.2946053, -0.13857591)
+material_override = SubResource("StandardMaterial3D_4wxng")
+mesh = SubResource("BoxMesh_ua7vj")
+
 [node name="Scare" type="Node3D" parent="Part 1" unique_id=637313478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.044334, 3.2876627, 108.02938)
 script = ExtResource("5_lf0kl")
 
 [node name="Scare Check" type="Area3D" parent="Part 1/Scare" unique_id=2068070614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.290001, 0, -16.206985)
 
 [node name="Collision" type="CollisionShape3D" parent="Part 1/Scare/Scare Check" unique_id=1573579269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8680458, -0.46533203, 0.47826385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021743774, -0.46533203, -5.9885254)
 shape = SubResource("BoxShape3D_mb5e8")
-
-[node name="Make Scare Visible" type="Area3D" parent="Part 1/Scare" unique_id=248028206]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.8151855)
-
-[node name="Collision" type="CollisionShape3D" parent="Part 1/Scare/Make Scare Visible" unique_id=1444097053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.318161, -0.46533203, 0.2705841)
-shape = SubResource("BoxShape3D_5b65k")
-
-[node name="Disable Scare" type="Area3D" parent="Part 1/Scare" unique_id=1174491488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.3294525)
-
-[node name="Collision" type="CollisionShape3D" parent="Part 1/Scare/Disable Scare" unique_id=814721286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.318161, -0.46533203, 0.2705841)
-shape = SubResource("BoxShape3D_5b65k")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Part 1/Scare" unique_id=1314484880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1125565, -0.63663864, -54.81516)
@@ -1790,8 +1874,6 @@ offset_bottom = 735.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Part 1/Scare/Scare Check" to="Part 1/Scare" method="_on_scare_check_body_entered"]
-[connection signal="body_entered" from="Part 1/Scare/Make Scare Visible" to="Part 1/Scare" method="_on_near_range"]
-[connection signal="body_entered" from="Part 1/Scare/Disable Scare" to="Part 1/Scare" method="_on_animation_not_triggered_destroy"]
 [connection signal="screen_entered" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="Part 2/Hallway 1/Delete Part 1" to="." method="_part_1_exited"]

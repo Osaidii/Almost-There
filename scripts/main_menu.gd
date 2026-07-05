@@ -11,9 +11,19 @@ const DOMAIN_3 = preload("res://scenes/domain_3.tscn") as PackedScene
 const CREDITS = preload("res://ui/credits.tscn") as PackedScene
 
 @onready var song: AudioStreamPlayer = $Song
+@onready var light: OmniLight3D = $"../Level/Street Light/Light"
+@onready var hand: Sprite3D = $"../Level/Joint/Hand"
+@onready var new_game: Button = $"Buttons/New Game"
 
 func _ready() -> void:
 	Transition.reset()
+	new_game.grab_focus()
+
+func _process(delta: float) -> void:
+	if light.light_energy >= 0.9:
+		hand.visible = false
+	else:
+		hand.visible = true
 
 # For Debugging, Buttons to go all scenes, hehe boi! work smart not hard!
 
