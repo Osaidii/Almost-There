@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://duxk6ybnltcoa"]
 
-[ext_resource type="Texture2D" uid="uid://cw4mkr5jb1lwt" path="res://assets/Domain 1/Wall 1_Material_baseColor.png" id="1_5yf0e"]
-[ext_resource type="Texture2D" uid="uid://ylxbeaqg57rd" path="res://assets/Domain 1/Wall 1_Material.jpg" id="2_pyvwd"]
-[ext_resource type="Texture2D" uid="uid://beywk131twp1q" path="res://assets/Domain 1/Wall 1_Material_2.png" id="3_gvdvg"]
+[ext_resource type="Texture2D" uid="uid://cw4mkr5jb1lwt" path="res://assets/Domain 1/Wall/Wall 1_Material_baseColor.png" id="1_5yf0e"]
+[ext_resource type="Texture2D" uid="uid://ylxbeaqg57rd" path="res://assets/Domain 1/Wall/Wall 1_Material.jpg" id="2_pyvwd"]
+[ext_resource type="Texture2D" uid="uid://beywk131twp1q" path="res://assets/Domain 1/Wall/Wall 1_Material_2.png" id="3_gvdvg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwoti"]
 resource_name = "Material.001"

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bap4ot0hv5ac3"]
 
 [ext_resource type="Script" uid="uid://bmkwbu6nk5bin" path="res://scripts/domain 1/opening_wall.gd" id="1_c6f81"]
-[ext_resource type="PackedScene" uid="uid://bt6kpgnchnlrn" path="res://assets/Domain 1/Wall 1.glb" id="2_66xqt"]
+[ext_resource type="PackedScene" uid="uid://bt6kpgnchnlrn" path="res://assets/Domain 1/Wall/Wall 1.glb" id="2_66xqt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u7lew"]
 size = Vector3(0.2572174, 2.9784546, 3.9799805)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7cgjvvujq2j"
+path="res://.godot/imported/Main Menu Song LSPLASH.mp3-3e99546bec6ca557d6bf4d2cd8b2f131.mp3str"
+
+[deps]
+
+source_file="res://assets/Intro n Main Menu/Sounds/Main Menu Song LSPLASH.mp3"
+dest_files=["res://.godot/imported/Main Menu Song LSPLASH.mp3-3e99546bec6ca557d6bf4d2cd8b2f131.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

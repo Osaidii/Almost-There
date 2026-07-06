@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0y4q20k2ucgn"
+path="res://.godot/imported/Ringtone.mp3-510df50c7f84c578c0063ec7b6440e44.mp3str"
+
+[deps]
+
+source_file="res://assets/Intro n Main Menu/Sounds/Ringtone.mp3"
+dest_files=["res://.godot/imported/Ringtone.mp3-510df50c7f84c578c0063ec7b6440e44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
