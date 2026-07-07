@@ -14,17 +14,28 @@ const CREDITS = preload("res://ui/credits.tscn") as PackedScene
 @onready var settings: Control = $"../Settings"
 @onready var button: OptionButton = $"../Settings/Graphics/Display Mode/Button"
 @onready var graphics: Control = $"../Settings/Graphics"
-@onready var gameplay: Control = $"../Settings/Gameplay"
+@onready var accesibility: Control = $"../Settings/Accesibility"
 @onready var controls: Control = $"../Settings/Controls"
 @onready var audio: Control = $"../Settings/Audio"
 @onready var graphics_button: Button = $"../Settings/Categories/Graphics Button"
-@onready var gameplay_button: Button = $"../Settings/Categories/Gameplay Button"
+@onready var accesibility_button: Button = $"../Settings/Categories/Accesibility Button"
 @onready var controls_button: Button = $"../Settings/Categories/Controls Button"
 @onready var audio_button: Button = $"../Settings/Categories/Audio Button"
 @onready var graphics_first_button: OptionButton = $"../Settings/Graphics/Display Mode/Button"
-@onready var gameplay_first_button: CheckButton = $"../Settings/Gameplay/Subtitles/CheckBox"
-@onready var controls_first_button: CheckButton = $"../Settings/Controls/Subtitles/CheckBox"
-@onready var audio_first_button: CheckButton = $"../Settings/Audio/Subtitles/CheckBox"
+@onready var graphics_second_button: OptionButton = $"../Settings/Graphics/Display Mode/Button"
+@onready var graphics_third_button: OptionButton = $"../Settings/Graphics/Display Resolution/Button"
+@onready var graphics_fourth_button: CheckButton = $"../Settings/Graphics/VSync/CheckBox"
+@onready var graphics_fifth_button: CheckButton = $"../Settings/Graphics/FPS Cap/CheckBox"
+@onready var graphics_sixth_button: OptionButton = $"../Settings/Graphics/FPS Limit/Button"
+@onready var graphics_seventh_button: OptionButton = $"../Settings/Graphics/Graphics Quality/Button"
+@onready var accesibility_first_button: CheckButton = $"../Settings/Accesibility/Subtitles/CheckBox"
+@onready var accesibility_second_button: CheckButton = $"../Settings/Accesibility/Show Tutorials/CheckBox"
+@onready var accesibility_third_button: OptionButton = $"../Settings/Accesibility/Language/Button"
+@onready var controls_first_button: Button = $"../Settings/Controls/Button"
+@onready var audio_first_button: HSlider = $"../Settings/Audio/Master Volume/SliderBox"
+@onready var audio_second_button: HSlider = $"../Settings/Audio/Dialogue Volume/SliderBox"
+@onready var audio_third_button: HSlider = $"../Settings/Audio/Music Volume/SliderBox"
+@onready var audio_fourth_button: HSlider = $"../Settings/Audio/SFX Volume/SliderBox"
 
 # For Debugging, Buttons to go all scenes, hehe boi! work smart not hard!
 
@@ -92,23 +103,42 @@ func _on_close_settings_pressed() -> void:
 func _on_graphics_pressed() -> void:
 	audio.visible = false
 	controls.visible = false
-	gameplay.visible = false
+	accesibility.visible = false
 	graphics.visible = true
 
-func _on_gameplay_pressed() -> void:
+func _on_accesibility_pressed() -> void:
 	audio.visible = false
 	controls.visible = false
-	gameplay.visible = true
+	accesibility.visible = true
 	graphics.visible = false
 
 func _on_controls_pressed() -> void:
 	audio.visible = false
 	controls.visible = true
-	gameplay.visible = false
+	accesibility.visible = false
 	graphics.visible = false
 
 func _on_audio_pressed() -> void:
 	audio.visible = true
 	controls.visible = false
-	gameplay.visible = false
+	accesibility.visible = false
 	graphics.visible = false
+
+func _on_default_pressed() -> void:
+	if audio.visible == true:
+		audio_first_button.value = 7.0
+		audio_second_button.value = 7.0
+		audio_third_button.value = 7.0
+		audio_fourth_button.value = 7.0
+	elif controls.visible == true:
+		pass
+	elif graphics.visible == true:
+		graphics_first_button
+		graphics_second_button
+		graphics_third_button
+		graphics_fourth_button
+		graphics_fifth_button
+		graphics_sixth_button
+		graphics_seventh_button
+	elif accesibility.visible == true:
+		pass
