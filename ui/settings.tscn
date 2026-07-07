@@ -1,0 +1,586 @@
+[gd_scene format=3 uid="uid://dx0j60bgextuc"]
+
+[ext_resource type="Texture2D" uid="uid://na0mnht4c1ky" path="res://assets/Intro n Main Menu/Close Settings.png" id="1_feasd"]
+[ext_resource type="Script" uid="uid://dmm5tydhf2y7o" path="res://scripts/intro and main menu/settings.gd" id="1_neoxp"]
+[ext_resource type="Texture2D" uid="uid://dbjb3de6bl7gy" path="res://assets/Intro n Main Menu/Close Settings Focused.png" id="2_neoxp"]
+[ext_resource type="FontFile" uid="uid://c5ngj2wws5wgq" path="res://assets/Game Font.ttf" id="3_yl6pr"]
+
+[sub_resource type="Animation" id="Animation_wlesh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e713x"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yl6pr"]
+_data = {
+&"RESET": SubResource("Animation_wlesh"),
+&"fade": SubResource("Animation_e713x")
+}
+
+[node name="Settings" type="Control" unique_id=1141191635]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_neoxp")
+
+[node name="Background" type="Panel" parent="." unique_id=857172374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 85.0
+offset_right = 1100.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close" type="TextureButton" parent="." unique_id=2093602547]
+layout_mode = 0
+offset_left = 1078.0
+offset_top = 107.0
+offset_right = 1100.0
+offset_bottom = 129.0
+scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../Categories/Audio Button")
+focus_neighbor_bottom = NodePath("../Categories/Audio Button")
+texture_normal = ExtResource("1_feasd")
+texture_pressed = ExtResource("1_feasd")
+texture_hover = ExtResource("2_neoxp")
+texture_focused = ExtResource("2_neoxp")
+
+[node name="Settings" type="Label" parent="." unique_id=1325326155]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 110.0
+offset_right = 726.0
+offset_bottom = 159.0
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_yl6pr")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="Graphics" type="Control" parent="." unique_id=2121759767]
+anchors_preset = 0
+offset_left = 153.0
+offset_top = 257.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="Display Mode" type="Control" parent="Graphics" unique_id=522368655]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 27.0
+offset_right = 261.0
+offset_bottom = 67.0
+
+[node name="Button" type="OptionButton" parent="Graphics/Display Mode" unique_id=1671953939]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -3.0
+offset_right = 572.0
+offset_bottom = 28.0
+focus_neighbor_top = NodePath("../../../Categories/Graphics Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Display Resolution/Button")
+selected = 2
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 1
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 0
+popup/item_2/text = "Exclusive Fullscreen"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="Graphics/Display Mode" unique_id=1068928354]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Display Mode"
+
+[node name="Display Resolution" type="Control" parent="Graphics" unique_id=1054073038]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 73.0
+offset_right = 261.0
+offset_bottom = 113.0
+
+[node name="Button" type="OptionButton" parent="Graphics/Display Resolution" unique_id=1139185669]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -3.0
+offset_right = 572.0
+offset_bottom = 28.0
+focus_neighbor_top = NodePath("../../Display Mode/Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../VSync/CheckBox")
+selected = 3
+item_count = 4
+popup/item_0/text = "3840 x 2160"
+popup/item_0/id = 2
+popup/item_1/text = "2560 x 1440"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+popup/item_3/text = "1280 x 720"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Graphics/Display Resolution" unique_id=525575760]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Display Resolution"
+
+[node name="VSync" type="Control" parent="Graphics" unique_id=2041673247]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 118.0
+offset_right = 261.0
+offset_bottom = 158.0
+
+[node name="Label" type="Label" parent="Graphics/VSync" unique_id=2121922392]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Vsync"
+
+[node name="CheckBox" type="CheckButton" parent="Graphics/VSync" unique_id=369621424]
+layout_mode = 0
+offset_left = 441.0
+offset_top = -6.9999995
+offset_right = 485.0
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../Display Resolution/Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../FPS Cap/CheckBox")
+
+[node name="FPS Cap" type="Control" parent="Graphics" unique_id=635287317]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 161.0
+offset_right = 261.0
+offset_bottom = 201.0
+
+[node name="Label" type="Label" parent="Graphics/FPS Cap" unique_id=261366763]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "FPS Cap"
+
+[node name="CheckBox" type="CheckButton" parent="Graphics/FPS Cap" unique_id=870162245]
+layout_mode = 0
+offset_left = 441.0
+offset_top = -6.9999995
+offset_right = 485.0
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../VSync/CheckBox")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../FPS Limit/Button")
+
+[node name="FPS Limit" type="Control" parent="Graphics" unique_id=864468937]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 205.0
+offset_right = 261.0
+offset_bottom = 245.0
+
+[node name="Button" type="OptionButton" parent="Graphics/FPS Limit" unique_id=1292069742]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -3.0
+offset_right = 572.0
+offset_bottom = 28.0
+focus_neighbor_top = NodePath("../../FPS Cap/CheckBox")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Graphics Quality/Button")
+selected = 3
+item_count = 5
+popup/item_0/text = "180 FPS"
+popup/item_0/id = 2
+popup/item_1/text = "144 FPS"
+popup/item_1/id = 1
+popup/item_2/text = "120 FPS"
+popup/item_2/id = 2
+popup/item_3/text = "60 FPS"
+popup/item_3/id = 3
+popup/item_4/text = "30 FPS"
+popup/item_4/id = 4
+
+[node name="Label" type="Label" parent="Graphics/FPS Limit" unique_id=1196942344]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "FPS Limit"
+
+[node name="Graphics Quality" type="Control" parent="Graphics" unique_id=1268391486]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 249.0
+offset_right = 261.0
+offset_bottom = 289.0
+
+[node name="Button" type="OptionButton" parent="Graphics/Graphics Quality" unique_id=1454317105]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -3.0
+offset_right = 572.0
+offset_bottom = 28.0
+focus_neighbor_top = NodePath("../../FPS Limit/Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../../Default")
+selected = 2
+item_count = 5
+popup/item_0/text = "Ultra High"
+popup/item_0/id = 2
+popup/item_1/text = "High"
+popup/item_1/id = 1
+popup/item_2/text = "Balanced"
+popup/item_2/id = 2
+popup/item_3/text = "Low"
+popup/item_3/id = 3
+popup/item_4/text = "Ultra Low"
+popup/item_4/id = 4
+
+[node name="Label" type="Label" parent="Graphics/Graphics Quality" unique_id=1341695785]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Graphics Quality"
+
+[node name="Accesibility" type="Control" parent="." unique_id=701714500]
+visible = false
+anchors_preset = 0
+offset_left = 153.0
+offset_top = 257.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="Subtitles" type="Control" parent="Accesibility" unique_id=1631988756]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 27.0
+offset_right = 261.0
+offset_bottom = 67.0
+
+[node name="Label" type="Label" parent="Accesibility/Subtitles" unique_id=697030455]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Subtitles"
+
+[node name="CheckBox" type="CheckButton" parent="Accesibility/Subtitles" unique_id=1321226041]
+layout_mode = 0
+offset_left = 441.0
+offset_top = -6.9999995
+offset_right = 485.0
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../../Categories/Accesibility Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Show Tutorials/CheckBox")
+
+[node name="Show Tutorials" type="Control" parent="Accesibility" unique_id=2034521029]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 73.0
+offset_right = 261.0
+offset_bottom = 113.0
+
+[node name="Label" type="Label" parent="Accesibility/Show Tutorials" unique_id=942574606]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Show Tutorials"
+
+[node name="CheckBox" type="CheckButton" parent="Accesibility/Show Tutorials" unique_id=800996504]
+layout_mode = 0
+offset_left = 441.0
+offset_top = -6.9999995
+offset_right = 485.0
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../Subtitles/CheckBox")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Language/Button")
+
+[node name="Language" type="Control" parent="Accesibility" unique_id=1977359665]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 118.0
+offset_right = 261.0
+offset_bottom = 158.0
+
+[node name="Label" type="Label" parent="Accesibility/Language" unique_id=642517253]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Language"
+
+[node name="Button" type="OptionButton" parent="Accesibility/Language" unique_id=2066815028]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -3.0
+offset_right = 572.0
+offset_bottom = 28.0
+focus_neighbor_top = NodePath("../../Show Tutorials/CheckBox")
+focus_neighbor_right = NodePath("../../../Close")
+selected = 0
+item_count = 5
+popup/item_0/text = "English"
+popup/item_0/id = 2
+popup/item_1/text = "Urdu"
+popup/item_1/id = 1
+popup/item_2/text = "Spanish"
+popup/item_2/id = 2
+popup/item_3/text = "Chinese"
+popup/item_3/id = 3
+popup/item_4/text = "Japanese"
+popup/item_4/id = 4
+
+[node name="Controls" type="Control" parent="." unique_id=868072954]
+visible = false
+anchors_preset = 0
+offset_left = 153.0
+offset_top = 257.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="Button" type="Button" parent="Controls" unique_id=501729422]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_top = NodePath("../../Categories/Controls Button")
+focus_neighbor_right = NodePath("../../Close")
+
+[node name="Audio" type="Control" parent="." unique_id=1553679777]
+visible = false
+anchors_preset = 0
+offset_left = 153.0
+offset_top = 257.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="Master Volume" type="Control" parent="Audio" unique_id=1425652762]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 27.0
+offset_right = 261.0
+offset_bottom = 67.0
+
+[node name="Label" type="Label" parent="Audio/Master Volume" unique_id=915530715]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Master Volume"
+
+[node name="SliderBox" type="HSlider" parent="Audio/Master Volume" unique_id=91957699]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -6.9999995
+offset_right = 459.3334
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../../Categories/Audio Button")
+focus_neighbor_right = NodePath("../../../Close")
+max_value = 10.0
+value = 7.0
+
+[node name="Dialogue Volume" type="Control" parent="Audio" unique_id=1549294357]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 73.0
+offset_right = 261.0
+offset_bottom = 113.0
+
+[node name="Label" type="Label" parent="Audio/Dialogue Volume" unique_id=163711689]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Dialogue Volume"
+
+[node name="SliderBox" type="HSlider" parent="Audio/Dialogue Volume" unique_id=803407628]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -6.9999995
+offset_right = 459.3334
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../Master Volume/SliderBox")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Music Volume/SliderBox")
+max_value = 10.0
+value = 7.0
+
+[node name="Music Volume" type="Control" parent="Audio" unique_id=875677285]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 118.0
+offset_right = 261.0
+offset_bottom = 158.0
+
+[node name="Label" type="Label" parent="Audio/Music Volume" unique_id=1716546314]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Music Volume"
+
+[node name="SliderBox" type="HSlider" parent="Audio/Music Volume" unique_id=897909793]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -6.9999995
+offset_right = 459.3334
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../Dialogue Volume/SliderBox")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../SFX Volume/SliderBox")
+max_value = 10.0
+value = 7.0
+
+[node name="SFX Volume" type="Control" parent="Audio" unique_id=864657903]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 164.0
+offset_right = 261.0
+offset_bottom = 204.0
+
+[node name="Label" type="Label" parent="Audio/SFX Volume" unique_id=855889112]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Effects Volume"
+
+[node name="SliderBox" type="HSlider" parent="Audio/SFX Volume" unique_id=1709283430]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -6.9999995
+offset_right = 459.3334
+offset_bottom = 17.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_top = NodePath("../../Music Volume/SliderBox")
+focus_neighbor_right = NodePath("../../../Close")
+max_value = 10.0
+value = 7.0
+
+[node name="Categories" type="Control" parent="." unique_id=498128010]
+anchors_preset = 0
+offset_left = 391.0
+offset_top = 185.0
+offset_right = 431.0
+offset_bottom = 225.0
+
+[node name="Graphics Button" type="Button" parent="Categories" unique_id=1510165512]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 14.0
+offset_right = 50.0
+offset_bottom = 45.0
+focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_right = NodePath("../Accesibility Button")
+text = "Graphics"
+
+[node name="Accesibility Button" type="Button" parent="Categories" unique_id=1739372321]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 14.0
+offset_right = 220.0
+offset_bottom = 45.0
+focus_neighbor_left = NodePath("../Graphics Button")
+focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_right = NodePath("../Controls Button")
+focus_neighbor_bottom = NodePath("../../Accesibility/Subtitles/CheckBox")
+text = "Accesibility"
+
+[node name="Controls Button" type="Button" parent="Categories" unique_id=1833224562]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 14.0
+offset_right = 395.0
+offset_bottom = 45.0
+focus_neighbor_left = NodePath("../Accesibility Button")
+focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_right = NodePath("../Audio Button")
+text = "Controls"
+
+[node name="Audio Button" type="Button" parent="Categories" unique_id=872360577]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 14.0
+offset_right = 568.0
+offset_bottom = 45.0
+focus_neighbor_left = NodePath("../Controls Button")
+focus_neighbor_top = NodePath("../../Close")
+focus_neighbor_right = NodePath("../../Close")
+text = "Audio"
+
+[node name="Default" type="Button" parent="." unique_id=1159625373]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 558.0
+offset_right = 703.0
+offset_bottom = 589.0
+text = "Reset to Default"
+
+[node name="Settings Fade" type="AnimationPlayer" parent="." unique_id=1411498370]
+libraries/ = SubResource("AnimationLibrary_yl6pr")
+
+[connection signal="pressed" from="Close" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="Categories/Graphics Button" to="." method="_on_graphics_pressed"]
+[connection signal="pressed" from="Categories/Accesibility Button" to="." method="_on_accesibility_pressed"]
+[connection signal="pressed" from="Categories/Controls Button" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Categories/Audio Button" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Default" to="." method="_on_default_pressed"]
