@@ -14,7 +14,6 @@ func _ready() -> void:
 	
 	previous_battery = flash_light.BATTERY
 	_number_to_output()
-	_set_position_on_screen()
 
 func _process(_delta: float) -> void:
 	if !Shortcuts.flash_light_unlocked: return
@@ -29,17 +28,6 @@ func _clear_bars() -> void:
 		var bar = get_child(i)
 		for j in bar.get_children():
 			j.visible = false
-
-func _set_position_on_screen() -> void:
-	if !Shortcuts.flash_light_unlocked: return
-	# Set Correct Postions in Relevance to Resolution
-	for i in range(9):
-		var current_node := get_child(i)
-		for j in current_node.get_children():
-			j.scale.x = Utilities.for_correct_resolution(BAR_SCALE)
-			j.scale.y = Utilities.for_correct_resolution(BAR_SCALE)
-			j.position.x = Utilities.for_correct_resolution(X_OFFSET * (BAR_SCALE * 10)) + (Utilities.for_correct_resolution(DIFFERENCE_OFFSET * (BAR_SCALE * 10)) * i)
-			j.position.y = get_viewport_rect().end.y - Utilities.for_correct_resolution(Y_OFFSET * (BAR_SCALE * 10))
 
 func _number_to_output() -> void:
 	if !Shortcuts.flash_light_unlocked: return

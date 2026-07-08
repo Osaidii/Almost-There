@@ -77,3 +77,47 @@ func _on_default_pressed() -> void:
 		accesibility_first_button.button_pressed = false
 		accesibility_second_button.button_pressed = false
 		accesibility_third_button.selected = 0
+
+# Audio Settings
+
+func _on_master_value_changed(value: float) -> void:
+	var decibels: int = give_db(value)
+	AudioServer.set_bus_volume_db(0 ,decibels)
+
+func _on_dialogue_value_changed(value: float) -> void:
+	var decibels: int = give_db(value)
+	AudioServer.set_bus_volume_db(1 ,decibels)
+
+func _on_music_value_changed(value: float) -> void:
+	var decibels: int = give_db(value)
+	AudioServer.set_bus_volume_db(2 ,decibels)
+
+func _on_effects_value_changed(value: float) -> void:
+	var decibels: int = give_db(value)
+	AudioServer.set_bus_volume_db(3 ,decibels)
+
+func give_db(level: int) -> int:
+	match level:
+		0:
+			return -80
+		1:
+			return -18
+		2:
+			return -15
+		3:
+			return -12
+		4:
+			return -9
+		5:
+			return -6
+		6:
+			return -3
+		7:
+			return 0
+		8:
+			return 3
+		9:
+			return 6
+		10:
+			return 9
+	return 0

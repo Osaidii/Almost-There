@@ -1,8 +1,5 @@
 extends Node
 
-var current_resolution := Vector2(1920, 1080)
-var design_resolution := Vector2(1280, 720)
-
 # Levels
 var intro_complete: bool
 var domain_1_complete: bool
