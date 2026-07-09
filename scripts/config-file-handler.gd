@@ -1,0 +1,61 @@
+extends Node
+
+var config_file := ConfigFile.new()
+var default_file := ConfigFile.new()
+const FILE_PATH := "user://settings.ini"
+const DEFAULT_FILE_PATH := "user://default_settings.ini"
+
+func _ready() -> void:
+	if !FileAccess.file_exists(FILE_PATH):
+		config_file.set_value("graphics", "mode", 2)
+		config_file.set_value("graphics", "resolution", 3)
+		config_file.set_value("graphics", "vsync", true)
+		config_file.set_value("graphics", "fpscap", false)
+		config_file.set_value("graphics", "fpslimit", 3)
+		config_file.set_value("graphics", "mode", 2)
+		config_file.set_value("graphics", "quality", 1)
+		config_file.set_value("accesibility", "subtitles", true)
+		config_file.set_value("accesibility", "tutorials", true)
+		config_file.set_value("accesibility", "languages", 0)
+		config_file.set_value("audio", "master", 7)
+		config_file.set_value("audio", "dialogue", 7)
+		config_file.set_value("audio", "music", 7)
+		config_file.set_value("audio", "sfx", 7)
+		config_file.save(FILE_PATH)
+	else:
+		config_file.load(FILE_PATH)
+	if !FileAccess.file_exists(DEFAULT_FILE_PATH):
+		default_file.set_value("graphics", "mode", 2)
+		default_file.set_value("graphics", "resolution", 3)
+		default_file.set_value("graphics", "vsync", true)
+		default_file.set_value("graphics", "fpscap", false)
+		default_file.set_value("graphics", "fpslimit", 3)
+		default_file.set_value("graphics", "mode", 2)
+		default_file.set_value("graphics", "quality", 1)
+		default_file.set_value("accesibility", "subtitles", true)
+		default_file.set_value("accesibility", "tutorials", true)
+		default_file.set_value("accesibility", "languages", 0)
+		default_file.set_value("audio", "master", 7)
+		default_file.set_value("audio", "dialogue", 7)
+		default_file.set_value("audio", "music", 7)
+		default_file.set_value("audio", "sfx", 7)
+		default_file.save(DEFAULT_FILE_PATH)
+	Shortcuts.load_settings_needed = !files_are_equal(FILE_PATH, DEFAULT_FILE_PATH)
+	Shortcuts.settings_check_done = true
+
+func files_are_equal(path1: String, path2: String) -> bool:
+	if not FileAccess.file_exists(path1) or not FileAccess.file_exists(path2):
+		return false
+	var file1 = FileAccess.open(path1, FileAccess.READ)
+	var file2 = FileAccess.open(path2, FileAccess.READ)
+	return file1.get_as_text() == file2.get_as_text()
+
+func setting_changed(category: String, option: String, value) -> void:
+	config_file.set_value(category, option, value)
+	config_file.save(FILE_PATH)
+
+func get_value(category, option):
+	return config_file.get_value(category, option)
+
+func load_settings() -> void:
+	pass

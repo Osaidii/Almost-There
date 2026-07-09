@@ -68,7 +68,7 @@ func _on_continue_game_pressed() -> void:
 func _on_settings_pressed() -> void:
 	settings.start_settings()
 	focus_grabbed = false
-	
+
 func _on_exit_game_pressed() -> void:
 	Transition.scene_out()
 	var tween = get_tree().create_tween()

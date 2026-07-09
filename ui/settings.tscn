@@ -110,13 +110,15 @@ focus_neighbor_top = NodePath("../../../Categories/Graphics Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Display Resolution/Button")
 selected = 2
-item_count = 3
+item_count = 4
 popup/item_0/text = "Windowed"
-popup/item_0/id = 1
-popup/item_1/text = "Fullscreen"
-popup/item_1/id = 0
-popup/item_2/text = "Exclusive Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
+popup/item_3/text = "Exclusive Fullscreen"
+popup/item_3/id = 3
 
 [node name="Label" type="Label" parent="Graphics/Display Mode" unique_id=1068928354]
 layout_mode = 0
@@ -186,6 +188,7 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../Display Resolution/Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../FPS Cap/CheckBox")
+button_pressed = true
 
 [node name="FPS Cap" type="Control" parent="Graphics" unique_id=635287317]
 anchors_preset = 0
@@ -320,6 +323,7 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../../Categories/Accesibility Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Show Tutorials/CheckBox")
+button_pressed = true
 
 [node name="Show Tutorials" type="Control" parent="Accesibility" unique_id=2034521029]
 anchors_preset = 0
@@ -346,6 +350,7 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../Subtitles/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Language/Button")
+button_pressed = true
 
 [node name="Language" type="Control" parent="Accesibility" unique_id=1977359665]
 anchors_preset = 0
@@ -371,7 +376,7 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../Show Tutorials/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 selected = 0
-item_count = 5
+item_count = 6
 popup/item_0/text = "English"
 popup/item_0/id = 2
 popup/item_1/text = "Urdu"
@@ -382,6 +387,8 @@ popup/item_3/text = "Chinese"
 popup/item_3/id = 3
 popup/item_4/text = "Japanese"
 popup/item_4/id = 4
+popup/item_5/text = "French"
+popup/item_5/id = 5
 
 [node name="Controls" type="Control" parent="." unique_id=868072954]
 visible = false
@@ -579,6 +586,15 @@ text = "Reset to Default"
 libraries/ = SubResource("AnimationLibrary_yl6pr")
 
 [connection signal="pressed" from="Close" to="." method="_on_close_settings_pressed"]
+[connection signal="item_selected" from="Graphics/Display Mode/Button" to="." method="_on_display_mode_item_selected"]
+[connection signal="item_selected" from="Graphics/Display Resolution/Button" to="." method="_on_display_reso_item_selected"]
+[connection signal="toggled" from="Graphics/VSync/CheckBox" to="." method="_on_vsync_toggled"]
+[connection signal="toggled" from="Graphics/FPS Cap/CheckBox" to="." method="_on_fps_cap_toggled"]
+[connection signal="item_selected" from="Graphics/FPS Limit/Button" to="." method="_on_fps_limit_item_selected"]
+[connection signal="item_selected" from="Graphics/Graphics Quality/Button" to="." method="_on_graphics_quality_item_selected"]
+[connection signal="toggled" from="Accesibility/Subtitles/CheckBox" to="." method="_on_subtitles_toggled"]
+[connection signal="toggled" from="Accesibility/Show Tutorials/CheckBox" to="." method="_on_tutorials_toggled"]
+[connection signal="item_selected" from="Accesibility/Language/Button" to="." method="_on_language_item_selected"]
 [connection signal="value_changed" from="Audio/Master Volume/SliderBox" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/Dialogue Volume/SliderBox" to="." method="_on_dialogue_value_changed"]
 [connection signal="value_changed" from="Audio/Music Volume/SliderBox" to="." method="_on_music_value_changed"]
