@@ -20,7 +20,7 @@ func _ready() -> void:
 		config_file.set_value("audio", "master", 7)
 		config_file.set_value("audio", "dialogue", 7)
 		config_file.set_value("audio", "music", 7)
-		config_file.set_value("audio", "sfx", 7)
+		config_file.set_value("audio", "effects", 7)
 		config_file.save(FILE_PATH)
 	else:
 		config_file.load(FILE_PATH)
@@ -38,24 +38,20 @@ func _ready() -> void:
 		default_file.set_value("audio", "master", 7)
 		default_file.set_value("audio", "dialogue", 7)
 		default_file.set_value("audio", "music", 7)
-		default_file.set_value("audio", "sfx", 7)
+		default_file.set_value("audio", "effects", 7)
 		default_file.save(DEFAULT_FILE_PATH)
-	Shortcuts.load_settings_needed = !files_are_equal(FILE_PATH, DEFAULT_FILE_PATH)
-	Shortcuts.settings_check_done = true
 
-func files_are_equal(path1: String, path2: String) -> bool:
-	if not FileAccess.file_exists(path1) or not FileAccess.file_exists(path2):
+func files_are_equal() -> bool:
+	if not FileAccess.file_exists(FILE_PATH) or not FileAccess.file_exists(DEFAULT_FILE_PATH):
 		return false
-	var file1 = FileAccess.open(path1, FileAccess.READ)
-	var file2 = FileAccess.open(path2, FileAccess.READ)
+	var file1 = FileAccess.open(FILE_PATH, FileAccess.READ)
+	var file2 = FileAccess.open(DEFAULT_FILE_PATH, FileAccess.READ)
+	print("files equal = ", file1.get_as_text() == file2.get_as_text())
 	return file1.get_as_text() == file2.get_as_text()
 
 func setting_changed(category: String, option: String, value) -> void:
 	config_file.set_value(category, option, value)
 	config_file.save(FILE_PATH)
-
-func get_value(category, option):
-	return config_file.get_value(category, option)
 
 func load_settings() -> void:
 	pass

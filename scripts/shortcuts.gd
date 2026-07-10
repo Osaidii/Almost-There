@@ -24,5 +24,3 @@ var line_alpha: float
 var line_subtleness: float
 var vignette_multiplier: float
 var vignette_border: float
-var load_settings_needed := false
-var settings_check_done := false

@@ -26,19 +26,39 @@ extends Control
 @onready var audio_fourth_button: HSlider = $"../Settings/Audio/SFX Volume/SliderBox"
 @onready var new_game: Button = $"Buttons/New Game"
 
+var config := ConfigFile.new()
+var default_config := ConfigFile.new()
 var fps_cap_enabled := false
-var settings_loaded := false
+var load_settings_needed := false
+
+func _ready() -> void:
+	var path = config.load("user://settings.ini")
+	var default_path = default_config.load("user://default_settings.ini")
+	load_settings_needed = !ConfigFileHandler.files_are_equal()
+	if load_settings_needed:
+		load_settings()
+		load_settings_needed = false
 
 func start_settings() -> void:
 	settings_fade.play_backwards("fade")
 	button.grab_focus()
 
-func _process(delta: float) -> void:
-	if Shortcuts.load_settings_needed:
-		load_settings()
-
 func load_settings() -> void:
-	_on_display_mode_item_selected(ConfigFileHandler.get_value("graphics", "mode"))
+	_on_display_mode_item_selected(config.get_value("graphics", "mode"))
+	_on_display_reso_item_selected(config.get_value("graphics", "resolution"))
+	_on_vsync_toggled(config.get_value("graphics", "vsync"))
+	if graphics_fourth_button.disabled == false:
+		_on_fps_cap_toggled(config.get_value("graphics", "fpscap"))
+	if graphics_fifth_button.disabled == false:
+		_on_fps_limit_item_selected(config.get_value("graphics", "fpslimit"))
+	_on_graphics_quality_item_selected(config.get_value("graphics", "quality"))
+	_on_subtitles_toggled(config.get_value("accesibility", "subtitles"))
+	_on_tutorials_toggled(config.get_value("accesibility", "tutorials"))
+	_on_language_item_selected(config.get_value("accesibility", "languages"))
+	_on_master_value_changed(config.get_value("audio", "master"))
+	_on_dialogue_value_changed(config.get_value("audio", "dialogue"))
+	_on_music_value_changed(config.get_value("audio", "music"))
+	_on_effects_value_changed(config.get_value("audio", "effects"))
 
 func _on_close_settings_pressed() -> void:
 	settings_fade.play("fade")
@@ -70,37 +90,25 @@ func _on_audio_pressed() -> void:
 
 func _on_default_pressed() -> void:
 	if audio.visible == true:
-		audio_first_button.value = 7.0
-		ConfigFileHandler.setting_changed("audio", "master", 7.0)
-		audio_second_button.value = 7.0
-		ConfigFileHandler.setting_changed("audio", "dialogue", 7.0)
-		audio_third_button.value = 7.0
-		ConfigFileHandler.setting_changed("audio", "music", 7.0)
-		audio_fourth_button.value = 7.0
-		ConfigFileHandler.setting_changed("audio", "sfx", 7.0)
-		
+		_on_master_value_changed(default_config.get_value("audio", "master"))
+		_on_dialogue_value_changed(default_config.get_value("audio", "dialogue"))
+		_on_music_value_changed(default_config.get_value("audio", "music"))
+		_on_effects_value_changed(default_config.get_value("audio", "effects"))
 	elif controls.visible == true:
 		pass
 	elif graphics.visible == true:
-		graphics_first_button.selected = 2
-		ConfigFileHandler.setting_changed("graphics", "mode", 2)
-		graphics_second_button.selected = 3
-		ConfigFileHandler.setting_changed("graphics", "resolution", 3)
-		graphics_third_button.button_pressed = false
-		ConfigFileHandler.setting_changed("graphics", "vsync", false)
-		graphics_fourth_button.button_pressed = false
-		ConfigFileHandler.setting_changed("graphics", "fpscap", false)
-		graphics_fifth_button.selected = 3
-		ConfigFileHandler.setting_changed("graphics", "fpslimit", 3)
-		graphics_sixth_button.selected = 2
-		ConfigFileHandler.setting_changed("graphics", "quality", 2)
+		_on_display_mode_item_selected(default_config.get_value("graphics", "mode"))
+		_on_display_reso_item_selected(default_config.get_value("graphics", "resolution"))
+		_on_vsync_toggled(default_config.get_value("graphics", "vsync"))
+		_on_fps_cap_toggled(default_config.get_value("graphics", "fpscap"))
+		_on_fps_limit_item_selected(default_config.get_value("graphics", "fpslimit"))
+		graphics_fourth_button.disabled = true
+		graphics_fifth_button.disabled = true
+		_on_graphics_quality_item_selected(default_config.get_value("graphics", "quality"))
 	elif accesibility.visible == true:
-		accesibility_first_button.button_pressed = false
-		ConfigFileHandler.setting_changed("accesibility", "subtitles", false)
-		accesibility_second_button.button_pressed = false
-		ConfigFileHandler.setting_changed("accesibility", "tutorials", false)
-		accesibility_third_button.selected = 0
-		ConfigFileHandler.setting_changed("accesibility", "language", "english")
+		_on_subtitles_toggled(default_config.get_value("accesibility", "subtitles"))
+		_on_tutorials_toggled(default_config.get_value("accesibility", "tutorials"))
+		_on_language_item_selected(default_config.get_value("accesibility", "languages"))
 
 # Graphics Settings
 func _on_display_mode_item_selected(index: int) -> void:
@@ -112,6 +120,7 @@ func _on_display_mode_item_selected(index: int) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	elif index == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	graphics_first_button.selected = index
 	ConfigFileHandler.setting_changed("graphics", "mode", index)
 
 func _on_display_reso_item_selected(index: int) -> void:
@@ -128,6 +137,7 @@ func _on_display_reso_item_selected(index: int) -> void:
 		3:
 			Shortcuts.display_res_x = 1280
 			Shortcuts.display_res_y = 720
+	graphics_second_button.selected = index
 	ConfigFileHandler.setting_changed("graphics", "resolution", index)
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
@@ -142,6 +152,7 @@ func _on_vsync_toggled(toggled_on: bool) -> void:
 			graphics_fifth_button.disabled = false
 		else:
 			graphics_fifth_button.disabled = true
+	graphics_third_button.button_pressed = toggled_on
 	ConfigFileHandler.setting_changed("graphics", "vsync", toggled_on)
 
 func _on_fps_cap_toggled(toggled_on: bool) -> void:
@@ -151,6 +162,7 @@ func _on_fps_cap_toggled(toggled_on: bool) -> void:
 	if !toggled_on:
 		graphics_fifth_button.disabled = true
 		fps_cap_enabled = false
+	graphics_fourth_button.button_pressed = toggled_on
 	ConfigFileHandler.setting_changed("graphics", "fpscap", toggled_on)
 
 func _on_fps_limit_item_selected(index: int) -> void:
@@ -164,6 +176,7 @@ func _on_fps_limit_item_selected(index: int) -> void:
 		Engine.max_fps = 60
 	elif index == 4:
 		Engine.max_fps = 30
+	graphics_fifth_button.selected = index
 	ConfigFileHandler.setting_changed("graphics", "fpslimit", index)
 
 func _on_graphics_quality_item_selected(index: int) -> void:
@@ -178,6 +191,7 @@ func _on_graphics_quality_item_selected(index: int) -> void:
 			Shortcuts.graphic_quality = "low"
 		4:
 			Shortcuts.graphic_quality = "ultralow"
+	graphics_sixth_button.selected = index
 	ConfigFileHandler.setting_changed("graphics", "quality", index)
 
 # Accesibility Settings
@@ -186,6 +200,7 @@ func _on_subtitles_toggled(toggled_on: bool) -> void:
 		Shortcuts.subtiles = true
 	if !toggled_on:
 		Shortcuts.subtiles = false
+	accesibility_first_button.button_pressed = toggled_on
 	ConfigFileHandler.setting_changed("accesibility", "subtitles", toggled_on)
 
 func _on_tutorials_toggled(toggled_on: bool) -> void:
@@ -193,6 +208,7 @@ func _on_tutorials_toggled(toggled_on: bool) -> void:
 		Shortcuts.show_tutorials = true
 	if !toggled_on:
 		Shortcuts.show_tutorials = false
+	accesibility_second_button.button_pressed = toggled_on
 	ConfigFileHandler.setting_changed("accesibility", "tutorials", toggled_on)
 
 func _on_language_item_selected(index: int) -> void:
@@ -209,27 +225,32 @@ func _on_language_item_selected(index: int) -> void:
 			Shortcuts.language = "japanese"
 		5:
 			Shortcuts.language = "french"
+	accesibility_third_button.selected = index
 	ConfigFileHandler.setting_changed("accesibility", "languages", index)
 
 # Audio Settings
 func _on_master_value_changed(value: float) -> void:
 	var decibels: int = give_db(value)
 	AudioServer.set_bus_volume_db(0 ,decibels)
+	audio_first_button.value = value
 	ConfigFileHandler.setting_changed("audio", "master", value)
 
 func _on_dialogue_value_changed(value: float) -> void:
 	var decibels: int = give_db(value)
 	AudioServer.set_bus_volume_db(1 ,decibels)
+	audio_second_button.value = value
 	ConfigFileHandler.setting_changed("audio", "dialogue", value)
 
 func _on_music_value_changed(value: float) -> void:
 	var decibels: int = give_db(value)
 	AudioServer.set_bus_volume_db(2 ,decibels)
+	audio_third_button.value = value
 	ConfigFileHandler.setting_changed("audio", "music", value)
 
 func _on_effects_value_changed(value: float) -> void:
 	var decibels: int = give_db(value)
 	AudioServer.set_bus_volume_db(3 ,decibels)
+	audio_fourth_button.value = value
 	ConfigFileHandler.setting_changed("audio", "sfx", value)
 
 func give_db(level: int) -> int:
