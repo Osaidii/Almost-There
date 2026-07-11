@@ -19,7 +19,12 @@ extends Control
 @onready var accesibility_first_button: CheckButton = $"../Settings/Accesibility/Subtitles/CheckBox"
 @onready var accesibility_second_button: CheckButton = $"../Settings/Accesibility/Show Tutorials/CheckBox"
 @onready var accesibility_third_button: OptionButton = $"../Settings/Accesibility/Language/Button"
-@onready var controls_first_button: Button = $"../Settings/Controls/Button"
+@onready var controls_first_button: Button = $Controls/Forward/Button
+@onready var controls_second_button: Button = $Controls/Backward/Button
+@onready var controls_third_button: Button = $Controls/Left/Button
+@onready var controls_fourth_button: Button = $Controls/Right/Button
+@onready var controls_fifth_button: Button = $Controls/Flashlight/Button
+@onready var controls_sixth_button: Button = $Controls/Crouch/Button
 @onready var audio_first_button: HSlider = $"../Settings/Audio/Master Volume/SliderBox"
 @onready var audio_second_button: HSlider = $"../Settings/Audio/Dialogue Volume/SliderBox"
 @onready var audio_third_button: HSlider = $"../Settings/Audio/Music Volume/SliderBox"
@@ -216,17 +221,18 @@ func _on_language_item_selected(index: int) -> void:
 		0:
 			Shortcuts.language = "english"
 		1:
-			Shortcuts.language = "urdu"
-		2:
 			Shortcuts.language = "spanish"
-		3:
+		2:
 			Shortcuts.language = "chinese"
+		3:
+			Shortcuts.language = "arabic"
 		4:
-			Shortcuts.language = "japanese"
-		5:
 			Shortcuts.language = "french"
 	accesibility_third_button.selected = index
 	ConfigFileHandler.setting_changed("accesibility", "languages", index)
+
+# Control Settings
+
 
 # Audio Settings
 func _on_master_value_changed(value: float) -> void:
@@ -278,3 +284,31 @@ func give_db(level: int) -> int:
 		10:
 			return 9
 	return 0
+
+
+func _on_forward_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_backward_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_left_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_right_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_flashlight_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_croucj_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_crouch_pressed() -> void:
+	pass # Replace with function body.

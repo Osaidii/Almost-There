@@ -17,6 +17,12 @@ func _ready() -> void:
 		config_file.set_value("accesibility", "subtitles", true)
 		config_file.set_value("accesibility", "tutorials", true)
 		config_file.set_value("accesibility", "languages", 0)
+		config_file.set_value("controls", "forward", true)
+		config_file.set_value("controls", "backward", true)
+		config_file.set_value("controls", "left", 0)
+		config_file.set_value("controls", "right", true)
+		config_file.set_value("controls", "flashlight", true)
+		config_file.set_value("controls", "crouch", 0)
 		config_file.set_value("audio", "master", 7)
 		config_file.set_value("audio", "dialogue", 7)
 		config_file.set_value("audio", "music", 7)
@@ -35,6 +41,12 @@ func _ready() -> void:
 		default_file.set_value("accesibility", "subtitles", true)
 		default_file.set_value("accesibility", "tutorials", true)
 		default_file.set_value("accesibility", "languages", 0)
+		config_file.set_value("controls", "forward", true)
+		config_file.set_value("controls", "backward", true)
+		config_file.set_value("controls", "left", 0)
+		config_file.set_value("controls", "right", true)
+		config_file.set_value("controls", "flashlight", true)
+		config_file.set_value("controls", "crouch", 0)
 		default_file.set_value("audio", "master", 7)
 		default_file.set_value("audio", "dialogue", 7)
 		default_file.set_value("audio", "music", 7)
@@ -46,7 +58,6 @@ func files_are_equal() -> bool:
 		return false
 	var file1 = FileAccess.open(FILE_PATH, FileAccess.READ)
 	var file2 = FileAccess.open(DEFAULT_FILE_PATH, FileAccess.READ)
-	print("files equal = ", file1.get_as_text() == file2.get_as_text())
 	return file1.get_as_text() == file2.get_as_text()
 
 func setting_changed(category: String, option: String, value) -> void:

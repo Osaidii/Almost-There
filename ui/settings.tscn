@@ -376,19 +376,17 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../Show Tutorials/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 selected = 0
-item_count = 6
+item_count = 5
 popup/item_0/text = "English"
 popup/item_0/id = 2
-popup/item_1/text = "Urdu"
-popup/item_1/id = 1
-popup/item_2/text = "Spanish"
-popup/item_2/id = 2
-popup/item_3/text = "Chinese"
-popup/item_3/id = 3
-popup/item_4/text = "Japanese"
-popup/item_4/id = 4
-popup/item_5/text = "French"
-popup/item_5/id = 5
+popup/item_1/text = "Spanish"
+popup/item_1/id = 2
+popup/item_2/text = "Chinese"
+popup/item_2/id = 3
+popup/item_3/text = "Arabic"
+popup/item_3/id = 4
+popup/item_4/text = "French"
+popup/item_4/id = 5
 
 [node name="Controls" type="Control" parent="." unique_id=868072954]
 visible = false
@@ -398,12 +396,158 @@ offset_top = 257.0
 offset_right = 193.0
 offset_bottom = 297.0
 
-[node name="Button" type="Button" parent="Controls" unique_id=501729422]
+[node name="Forward" type="Control" parent="Controls" unique_id=509424410]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 27.0
+offset_right = 261.00012
+offset_bottom = 67.0
+
+[node name="Button" type="Button" parent="Controls/Forward" unique_id=576359032]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-focus_neighbor_top = NodePath("../../Categories/Controls Button")
-focus_neighbor_right = NodePath("../../Close")
+offset_left = 135.0
+offset_top = -18.0
+offset_right = 190.0
+offset_bottom = 37.0
+focus_neighbor_top = NodePath("../../../Categories/Controls Button")
+focus_neighbor_right = NodePath("../../Backward/Button")
+focus_neighbor_bottom = NodePath("../../Left/Button")
+
+[node name="Label" type="Label" parent="Controls/Forward" unique_id=1708611152]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Move Forward"
+
+[node name="Backward" type="Control" parent="Controls" unique_id=541042371]
+anchors_preset = 0
+offset_left = 561.77
+offset_top = 27.0
+offset_right = 601.77106
+offset_bottom = 67.0
+
+[node name="Label" type="Label" parent="Controls/Backward" unique_id=986914998]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.50002
+offset_bottom = 20.0
+text = "Move Backward"
+
+[node name="Button" type="Button" parent="Controls/Backward" unique_id=368312977]
+layout_mode = 0
+offset_left = 141.47
+offset_top = -18.0
+offset_right = 196.47
+offset_bottom = 37.0
+focus_neighbor_left = NodePath("../../Forward/Button")
+focus_neighbor_top = NodePath("../../../Categories/Controls Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Right/Button")
+
+[node name="Left" type="Control" parent="Controls" unique_id=891037311]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 104.0
+offset_right = 261.00012
+offset_bottom = 144.0
+
+[node name="Button" type="Button" parent="Controls/Left" unique_id=270563833]
+layout_mode = 0
+offset_left = 135.0
+offset_top = -18.0
+offset_right = 190.0
+offset_bottom = 37.0
+focus_neighbor_top = NodePath("../../Forward/Button")
+focus_neighbor_right = NodePath("../../Right/Button")
+focus_neighbor_bottom = NodePath("../../Flashlight/Button")
+
+[node name="Label" type="Label" parent="Controls/Left" unique_id=1107733643]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Move Left"
+
+[node name="Right" type="Control" parent="Controls" unique_id=16201517]
+anchors_preset = 0
+offset_left = 561.77
+offset_top = 104.0
+offset_right = 601.77106
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="Controls/Right" unique_id=780532853]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.50002
+offset_bottom = 20.0
+text = "Move Right"
+
+[node name="Button" type="Button" parent="Controls/Right" unique_id=2050604509]
+layout_mode = 0
+offset_left = 141.47
+offset_top = -18.0
+offset_right = 196.47
+offset_bottom = 37.0
+focus_neighbor_left = NodePath("../../Left/Button")
+focus_neighbor_top = NodePath("../../Backward/Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Crouch/Button")
+
+[node name="Flashlight" type="Control" parent="Controls" unique_id=167539553]
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 180.0
+offset_right = 261.00012
+offset_bottom = 220.0
+
+[node name="Button" type="Button" parent="Controls/Flashlight" unique_id=8091831]
+layout_mode = 0
+offset_left = 135.0
+offset_top = -18.0
+offset_right = 190.0
+offset_bottom = 37.0
+focus_neighbor_top = NodePath("../../Left/Button")
+focus_neighbor_right = NodePath("../../Crouch/Button")
+focus_neighbor_bottom = NodePath("../../../Default")
+
+[node name="Label" type="Label" parent="Controls/Flashlight" unique_id=126920435]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.5
+offset_bottom = 20.0
+text = "Flashlight"
+
+[node name="Crouch" type="Control" parent="Controls" unique_id=1057868140]
+anchors_preset = 0
+offset_left = 561.77
+offset_top = 180.0
+offset_right = 601.77106
+offset_bottom = 220.0
+
+[node name="Label" type="Label" parent="Controls/Crouch" unique_id=1610418487]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.50002
+offset_bottom = 20.0
+text = "Crouch"
+
+[node name="Button" type="Button" parent="Controls/Crouch" unique_id=1906139584]
+layout_mode = 0
+offset_left = 141.47
+offset_top = -18.0
+offset_right = 196.47
+offset_bottom = 37.0
+focus_neighbor_left = NodePath("../../Flashlight/Button")
+focus_neighbor_top = NodePath("../../Right/Button")
+focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../../Default")
 
 [node name="Audio" type="Control" parent="." unique_id=1553679777]
 visible = false
