@@ -9,7 +9,7 @@ var domain_3_complete: bool
 # Settings
 var subtiles := true
 var show_tutorials := true
-var language := "english"
+var language := "es"
 var graphic_quality := "high"
 var display_res_x := 1280
 var display_res_y := 720
@@ -24,3 +24,31 @@ var line_alpha: float
 var line_subtleness: float
 var vignette_multiplier: float
 var vignette_border: float
+
+func read_from_translations_csv(language: String, line: int) -> String:
+	var answer: String
+	var file = FileAccess.open("res://storage/translations.csv", FileAccess.READ)
+	var language_number: int
+	match language:
+		"en":
+			language_number = 1
+		"es":
+			language_number = 2
+		"zh":
+			language_number = 3
+		"fr":
+			language_number = 4
+		"ur":
+			language_number = 5
+		"ar":
+			language_number = 6
+	var line_data = []
+	var line_count = 1
+	while not file.eof_reached():
+		var temp_line = file.get_csv_line(";")
+		line_count += 1
+		if (line_count - 1) == line:
+			line_data = temp_line
+			break
+	answer = line_data[language_number]
+	return answer

@@ -54,10 +54,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 140.0
-offset_top = 85.0
-offset_right = 1100.0
-offset_bottom = 595.0
+offset_left = 148.0
+offset_top = 81.0
+offset_right = 1108.0
+offset_bottom = 591.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -77,14 +77,15 @@ texture_focused = ExtResource("2_neoxp")
 
 [node name="Settings" type="Label" parent="." unique_id=1325326155]
 layout_mode = 0
-offset_left = 533.0
+offset_left = 146.0
 offset_top = 110.0
-offset_right = 726.0
+offset_right = 1141.0
 offset_bottom = 159.0
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_yl6pr")
 theme_override_font_sizes/font_size = 48
 text = "Settings"
+horizontal_alignment = 1
 
 [node name="Graphics" type="Control" parent="." unique_id=2121759767]
 anchors_preset = 0
@@ -215,6 +216,7 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../VSync/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../FPS Limit/Button")
+disabled = true
 
 [node name="FPS Limit" type="Control" parent="Graphics" unique_id=864468937]
 anchors_preset = 0
@@ -232,6 +234,7 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../FPS Cap/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Graphics Quality/Button")
+disabled = true
 selected = 3
 item_count = 5
 popup/item_0/text = "180 FPS"
@@ -376,7 +379,7 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../Show Tutorials/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 selected = 0
-item_count = 5
+item_count = 6
 popup/item_0/text = "English"
 popup/item_0/id = 2
 popup/item_1/text = "Spanish"
@@ -387,14 +390,16 @@ popup/item_3/text = "Arabic"
 popup/item_3/id = 4
 popup/item_4/text = "French"
 popup/item_4/id = 5
+popup/item_5/text = "Urdu"
+popup/item_5/id = 5
 
 [node name="Controls" type="Control" parent="." unique_id=868072954]
 visible = false
 anchors_preset = 0
-offset_left = 153.0
-offset_top = 257.0
-offset_right = 193.0
-offset_bottom = 297.0
+offset_left = 152.0
+offset_top = 246.0
+offset_right = 192.0
+offset_bottom = 286.0
 
 [node name="Forward" type="Control" parent="Controls" unique_id=509424410]
 anchors_preset = 0
@@ -412,12 +417,14 @@ offset_bottom = 37.0
 focus_neighbor_top = NodePath("../../../Categories/Controls Button")
 focus_neighbor_right = NodePath("../../Backward/Button")
 focus_neighbor_bottom = NodePath("../../Left/Button")
+theme_override_font_sizes/font_size = 20
+text = "W"
 
 [node name="Label" type="Label" parent="Controls/Forward" unique_id=1708611152]
 layout_mode = 0
 offset_left = -0.5
 offset_top = -3.0
-offset_right = 122.5
+offset_right = 46.5
 offset_bottom = 20.0
 text = "Move Forward"
 
@@ -446,6 +453,8 @@ focus_neighbor_left = NodePath("../../Forward/Button")
 focus_neighbor_top = NodePath("../../../Categories/Controls Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Right/Button")
+theme_override_font_sizes/font_size = 20
+text = "S"
 
 [node name="Left" type="Control" parent="Controls" unique_id=891037311]
 anchors_preset = 0
@@ -463,6 +472,8 @@ offset_bottom = 37.0
 focus_neighbor_top = NodePath("../../Forward/Button")
 focus_neighbor_right = NodePath("../../Right/Button")
 focus_neighbor_bottom = NodePath("../../Flashlight/Button")
+theme_override_font_sizes/font_size = 20
+text = "A"
 
 [node name="Label" type="Label" parent="Controls/Left" unique_id=1107733643]
 layout_mode = 0
@@ -497,6 +508,8 @@ focus_neighbor_left = NodePath("../../Left/Button")
 focus_neighbor_top = NodePath("../../Backward/Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Crouch/Button")
+theme_override_font_sizes/font_size = 20
+text = "D"
 
 [node name="Flashlight" type="Control" parent="Controls" unique_id=167539553]
 anchors_preset = 0
@@ -513,7 +526,9 @@ offset_right = 190.0
 offset_bottom = 37.0
 focus_neighbor_top = NodePath("../../Left/Button")
 focus_neighbor_right = NodePath("../../Crouch/Button")
-focus_neighbor_bottom = NodePath("../../../Default")
+focus_neighbor_bottom = NodePath("../../Interact/Button")
+theme_override_font_sizes/font_size = 20
+text = "F"
 
 [node name="Label" type="Label" parent="Controls/Flashlight" unique_id=126920435]
 layout_mode = 0
@@ -547,7 +562,37 @@ offset_bottom = 37.0
 focus_neighbor_left = NodePath("../../Flashlight/Button")
 focus_neighbor_top = NodePath("../../Right/Button")
 focus_neighbor_right = NodePath("../../../Close")
+focus_neighbor_bottom = NodePath("../../Interact/Button")
+theme_override_font_sizes/font_size = 20
+text = "C"
+
+[node name="Interact" type="Control" parent="Controls" unique_id=194837927]
+anchors_preset = 0
+offset_left = 401.0
+offset_top = 248.0
+offset_right = 441.00104
+offset_bottom = 288.0
+
+[node name="Label" type="Label" parent="Controls/Interact" unique_id=1715923117]
+layout_mode = 0
+offset_left = -0.5
+offset_top = -3.0
+offset_right = 122.50002
+offset_bottom = 20.0
+text = "Interact"
+
+[node name="Button" type="Button" parent="Controls/Interact" unique_id=1083478779]
+layout_mode = 0
+offset_left = 141.47
+offset_top = -18.0
+offset_right = 196.47
+offset_bottom = 37.0
+focus_neighbor_left = NodePath("../../Flashlight/Button")
+focus_neighbor_top = NodePath("../../Flashlight/Button")
+focus_neighbor_right = NodePath("../../Crouch/Button")
 focus_neighbor_bottom = NodePath("../../../Default")
+theme_override_font_sizes/font_size = 20
+text = "E"
 
 [node name="Audio" type="Control" parent="." unique_id=1553679777]
 visible = false
@@ -720,9 +765,9 @@ text = "Audio"
 
 [node name="Default" type="Button" parent="." unique_id=1159625373]
 layout_mode = 0
-offset_left = 570.0
+offset_left = 529.0
 offset_top = 558.0
-offset_right = 703.0
+offset_right = 755.0
 offset_bottom = 589.0
 text = "Reset to Default"
 
@@ -739,6 +784,13 @@ libraries/ = SubResource("AnimationLibrary_yl6pr")
 [connection signal="toggled" from="Accesibility/Subtitles/CheckBox" to="." method="_on_subtitles_toggled"]
 [connection signal="toggled" from="Accesibility/Show Tutorials/CheckBox" to="." method="_on_tutorials_toggled"]
 [connection signal="item_selected" from="Accesibility/Language/Button" to="." method="_on_language_item_selected"]
+[connection signal="pressed" from="Controls/Forward/Button" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="Controls/Backward/Button" to="." method="_on_backward_pressed"]
+[connection signal="pressed" from="Controls/Left/Button" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Controls/Right/Button" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Controls/Flashlight/Button" to="." method="_on_flashlight_pressed"]
+[connection signal="pressed" from="Controls/Crouch/Button" to="." method="_on_crouch_pressed"]
+[connection signal="pressed" from="Controls/Interact/Button" to="." method="_on_interact_pressed"]
 [connection signal="value_changed" from="Audio/Master Volume/SliderBox" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/Dialogue Volume/SliderBox" to="." method="_on_dialogue_value_changed"]
 [connection signal="value_changed" from="Audio/Music Volume/SliderBox" to="." method="_on_music_value_changed"]

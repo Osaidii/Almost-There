@@ -9,8 +9,12 @@ const CREDITS = preload("res://ui/credits.tscn") as PackedScene
 @onready var song: AudioStreamPlayer = $Song
 @onready var light: OmniLight3D = $"../Level/Street Light/Light"
 @onready var hand: Sprite3D = $"../Level/Joint/Hand"
-@onready var new_game: Button = $"Buttons/New Game"
+@onready var title: Label = $Title
 @onready var settings: Control = $"../Settings"
+@onready var new_game: Button = $"Buttons/New Game"
+@onready var continue_game: Button = $"Buttons/Continue Game"
+@onready var settings_of_game: Button = $Buttons/Settings
+@onready var exit_game: Button = $"Buttons/Exit Game"
 
 var focus_grabbed := false
 
@@ -42,6 +46,7 @@ func _ready() -> void:
 	Transition.reset()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	new_game.grab_focus()
+	language_changed()
 
 func _process(delta: float) -> void:
 	if light.light_energy >= 0.9:
@@ -76,3 +81,10 @@ func _on_exit_game_pressed() -> void:
 	tween.tween_property(song, "volume_db", -80, 3.0)
 	await get_tree().create_timer(2.0).timeout
 	get_tree().quit()
+
+func language_changed() -> void:
+	title.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 12)
+	new_game.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 13)
+	continue_game.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 14)
+	settings_of_game.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 15)
+	exit_game.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 16)
