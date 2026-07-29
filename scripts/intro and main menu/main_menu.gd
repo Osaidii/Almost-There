@@ -48,7 +48,7 @@ func _ready() -> void:
 	new_game.grab_focus()
 	language_changed()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if light.light_energy >= 0.9:
 		hand.visible = false
 	else:

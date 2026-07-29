@@ -11,7 +11,7 @@ var played := false
 @onready var entity: Sprite3D = $Entity
 @onready var animation: AnimationPlayer = $Animation
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if in_range:
 		wall_23.visible = false
 		wall_24.visible = false

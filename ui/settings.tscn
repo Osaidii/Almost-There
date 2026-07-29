@@ -145,6 +145,7 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../Display Mode/Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../VSync/CheckBox")
+disabled = true
 selected = 3
 item_count = 4
 popup/item_0/text = "3840 x 2160"
@@ -353,7 +354,8 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../Subtitles/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Language/Button")
-button_pressed = true
+disabled = true
+toggle_mode = false
 
 [node name="Language" type="Control" parent="Accesibility" unique_id=1977359665]
 anchors_preset = 0
@@ -750,6 +752,7 @@ offset_bottom = 45.0
 focus_neighbor_left = NodePath("../Accesibility Button")
 focus_neighbor_top = NodePath("../../Close")
 focus_neighbor_right = NodePath("../Audio Button")
+disabled = true
 text = "Controls"
 
 [node name="Audio Button" type="Button" parent="Categories" unique_id=872360577]

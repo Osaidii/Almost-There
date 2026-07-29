@@ -13,7 +13,7 @@ func _on_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		walked_trough = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if walked_trough and not_on_screen:
 		collision.disabled = false
 		meshes.visible = true

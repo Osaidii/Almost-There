@@ -2,6 +2,7 @@ extends Node3D
 
 const DOMAIN_1 = preload("res://scenes/domain_1.tscn") as PackedScene
 @onready var cutscene: AnimationPlayer = $Cutscene
+@onready var subtitles: AnimationPlayer = $Subtitles
 @onready var foreshadowing: Label = $Cinematics/Foreshadowing
 @onready var foreshadowing_other_half: Label = $"Cinematics/Foreshadowing Other Half"
 @onready var _1: Label = $"Cinematics/Subtitles/1"
@@ -16,11 +17,14 @@ const DOMAIN_1 = preload("res://scenes/domain_1.tscn") as PackedScene
 @onready var _10: Label = $"Cinematics/Subtitles/10"
 
 func _ready() -> void:
+	language_changed()
 	Transition.reset()
 	await get_tree().create_timer(1.0).timeout
 	cutscene.play("foreshadowing")
 	await get_tree().create_timer(7.0).timeout
 	cutscene.play("cutscene")
+	if Shortcuts.subtiles:
+		subtitles.play("subtitles")
 
 func _on_cutscene_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "cutscene":
@@ -37,5 +41,6 @@ func language_changed() -> void:
 	_8.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 9)
 	_9.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 10)
 	_10.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 11)
+	print(Shortcuts.language)
 	foreshadowing.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 42)
 	foreshadowing_other_half.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 43)

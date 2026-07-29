@@ -4,7 +4,7 @@ extends CanvasLayer
 
 const CRT_SHADER = preload("uid://dx840f7i02kei")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Set Shader Values
 	set_values()
 

@@ -29,18 +29,17 @@ extends Control
 @onready var audio_second_button: HSlider = $"../Settings/Audio/Dialogue Volume/SliderBox"
 @onready var audio_third_button: HSlider = $"../Settings/Audio/Music Volume/SliderBox"
 @onready var audio_fourth_button: HSlider = $"../Settings/Audio/SFX Volume/SliderBox"
-@onready var new_game: Button = $"Buttons/New Game"
 @onready var default: Button = $Default
 @onready var settings: Label = $Settings
-@onready var label1: Label = $"Graphics/Display Resolution/Label"
-@onready var label2: Label = $Graphics/VSync/Label
-@onready var label3: Label = $"Graphics/FPS Cap/Label"
-@onready var label4: Label = $"Graphics/FPS Limit/Label"
-@onready var label5: Label = $"Graphics/Graphics Quality/Label"
-@onready var label6: Label = $"Graphics/Display Mode/Label"
-@onready var label7: Label = $"Accesibility/Show Tutorials/Label"
-@onready var label8: Label = $Accesibility/Language/Label
-@onready var label9: Label = $Accesibility/Subtitles/Label
+@onready var label1: Label = $"Graphics/Display Mode/Label"
+@onready var label2: Label = $"Graphics/Display Resolution/Label"
+@onready var label3: Label = $Graphics/VSync/Label
+@onready var label4: Label = $"Graphics/FPS Cap/Label"
+@onready var label5: Label = $"Graphics/FPS Limit/Label"
+@onready var label6: Label = $"Graphics/Graphics Quality/Label"
+@onready var label7: Label = $Accesibility/Subtitles/Label
+@onready var label8: Label = $"Accesibility/Show Tutorials/Label"
+@onready var label9: Label = $Accesibility/Language/Label
 @onready var label10: Label = $Controls/Forward/Label
 @onready var label11: Label = $Controls/Backward/Label
 @onready var label12: Label = $Controls/Left/Label
@@ -48,10 +47,10 @@ extends Control
 @onready var label14: Label = $Controls/Flashlight/Label
 @onready var label15: Label = $Controls/Crouch/Label
 @onready var label16: Label = $Controls/Interact/Label
-@onready var label17: Label = $"Audio/Dialogue Volume/Label"
-@onready var label18: Label = $"Audio/Music Volume/Label"
-@onready var label19: Label = $"Audio/SFX Volume/Label"
-@onready var label20: Label = $"Audio/Master Volume/Label"
+@onready var label17: Label = $"Audio/Master Volume/Label"
+@onready var label18: Label = $"Audio/Dialogue Volume/Label"
+@onready var label19: Label = $"Audio/Music Volume/Label"
+@onready var label20: Label = $"Audio/SFX Volume/Label"
 
 var config := ConfigFile.new()
 var default_config := ConfigFile.new()
@@ -70,7 +69,7 @@ func _ready() -> void:
 
 func start_settings() -> void:
 	settings_fade.play_backwards("fade")
-	graphics_first_button.grab_focus()
+	graphics_button.grab_focus()
 
 func load_settings() -> void:
 	_on_display_mode_item_selected(config.get_value("graphics", "mode"))
@@ -106,6 +105,7 @@ func load_settings() -> void:
 func _on_close_settings_pressed() -> void:
 	settings_fade.play("fade")
 	await get_tree().create_timer(1.0).timeout
+	get_tree().current_scene.get_child(1).focus_grabbed = false
 
 func _on_graphics_pressed() -> void:
 	audio.visible = false
@@ -198,11 +198,11 @@ func _on_display_reso_item_selected(index: int) -> void:
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		DisplayServer.VSYNC_ENABLED
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		graphics_fourth_button.disabled = true
 		graphics_fifth_button.disabled = true
 	if !toggled_on:
-		DisplayServer.VSYNC_DISABLED
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		graphics_fourth_button.disabled = false
 		if fps_cap_enabled:
 			graphics_fifth_button.disabled = false
@@ -286,8 +286,6 @@ func _on_language_item_selected(index: int) -> void:
 	language_changed()
 	if get_tree().current_scene.scene_file_path == "res://ui/main_menu.scn":
 		$"../UI".language_changed()
-	elif get_tree().current_scene.scene_file_path == "res://ui/intro.scn":
-		$".".language_changed()
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_1.scn":
 		pass
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_2.scn":

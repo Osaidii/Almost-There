@@ -1,31 +1,30 @@
-﻿key;en;es;zh;fr;ur;ar 
-Hi, I am in the parking lot.;Hi, I am in the parking lot.;"Hola, estoy en el estacionamiento.
-Hola, estoy en el estacionamiento.";嗨，我在停车场。;Bonjour, je suis sur le parking.;ہیلو، میں پارکنگ لاٹ میں ہوں۔;مرحباً، أنا في موقف السيارات.
+key;en;es;zh;fr;ur;ar 
+Hi, I am in the parking lot.;Hi, I am in the parking lot.;Hola, estoy en el estacionamiento.;嗨，我在停车场。;Bonjour, je suis sur le parking.;ہیلو، میں پارکنگ لاٹ میں ہوں۔;مرحباً، أنا في موقف السيارات.
 Can you guide me?;Can you guide me?;¿Puedes guiarme?;你能指导我一下吗？;Pouvez-vous me guider ?;کیا آپ میری رہنمائی کر سکتے ہیں؟;هل يمكنك إرشادي؟
 Yes, why not?;Yes, why not?;Sí, ¿por qué no?;是的，为什么不呢？;Oui, pourquoi pas ?;جی ہاں، کیوں نہیں؟;نعم، ولِمَ لا؟
 I can guide you once you are on the road.;I can guide you once you are on the road.;Puedo guiarte una vez que estés en camino.;等你上了路，我可以为你指引。;Je pourrai vous guider une fois que vous serez sur la route.;جب آپ سڑک پر آ جائیں گے تو میں آپ کی رہنمائی کر سکتا ہوں۔;يمكنني إرشادك بمجرد أن تصبح على الطريق.
 Woah.;Woah.;Vaya.;哇。;Waouh.;واہ۔;يا للروعة!
 On Your Left.;On Your Left.;A tu izquierda.;在你左边。;À votre gauche.;آپ کے بائیں جانب۔;على يسارك.
 Come in, don't hesitate.;Come in, don't hesitate.;Pasa, no lo dudes.;进来吧，别犹豫。;Entrez, n'hésitez pas.;اندر آ جائیں، ہچکچاہٹ نہ کریں۔;تفضل بالدخول، لا تتردد.
-Oh. (Dissappionment after finding out);Oh.;Oh.;哦。;Oh.;اوہ۔;أوه.
+Oh.;Oh.;Oh.;哦。;Oh.;اوہ۔;أوه.
 This place …;This place …;Este lugar…;这个地方……;Cet endroit…;یہ جگہ;هذا المكان…
 … feels weird.;… feels weird.;… se siente raro.;感觉怪怪的。;… ça fait bizarre.; عجیب سی لگتی ہے۔; يبدو الأمر غريباً.
 Almost There;Almost There;Casi llegamos;快到了;On y est presque; پہنچنے والے ہیں;أوشكنا على الوصول
 New Game;New Game;Nueva partida;新游戏;Nouvelle partie;نیا کھیل;لعبة جديدة
-Continue;Continue;Continuar;继续继续游戏;Continuer;کھیل جاری رکھیں;متابعة اللعبة
-Settings;Settings;Ajustes;设置;Paramètres;انتخابات;إعدادات
+Continue;Continue;Continuar;继续;Continuer;کھیل جاری رکھیں;متابعة
+Settings;Settings;Ajustes;设置;Paramètres;ترتیبات;إعدادات
 Exit Game;Exit Game;Salir del juego;退出游戏;Quitter le jeu;گیم سے نکلیں;الخروج من اللعبة
-Graphics;Graphics;Gráficos;图形;Graphique;گرافکس;رسوميات
-Accesibility;Accesibility;Accesibilidad;无障碍;Accessibilité;رسائی;إمكانية الوصول
+Graphics;Graphics;Gráficos;图形;Graphismes;گرافکس;رسوميات
+Accessibility;Accessibility;Accesibilidad;无障碍;Accessibilité;رسائی;إمكانية الوصول
 Controls;Controls;Controles;控制;Commandes;کنٹرولز;عناصر التحكم
-Audio;Audio;Audio;声音的;Audio;آڈیو;صوتي
+Audio;Audio;Audio;音频;Audio;آڈیو;صوتي
 Move Forward;Move Forward;Avanzar;向前迈进;Avancer;آگے بڑھیں;المضي قدماً
 Move Backward;Move Backward;Retroceder;向后移动;Reculer;پیچھے کی طرف بڑھیں;تحرّك إلى الخلف
 Move Left;Move Left;Mover a la izquierda;向左移动;Déplacer vers la gauche;بائیں جانب بڑھیں;تحرّك لليسار
 Move Right;Move Right;Muévete a la derecha;向右移动;Déplacez-vous vers la droite;دائیں جانب بڑھیں;تحرّك يميناً
 Flashlight;Flashlight;Flash;手电筒;Lampe de poche;ٹارچ;مصباح يدوي
 Crouch;Crouch;Agacharse;蹲伏;Accroupissement;زمین پر بیٹھنا;كراوتش
-Interact;Interact;Interactuar;相互影响;Interagir;باہمی رابطہ;يتفاعل
+Interact;Interact;Interactuar;交互;Interagir;باہمی رابطہ;يتفاعل
 Reset to Default;Reset to Default;Restablecer a los valores predeterminados;恢复默认设置;Rétablir les paramètres par défaut;پہلے کی حالت پر بحال کریں;إعادة التعيين إلى الافتراضي
 Master Volume;Master Volume;Volumen maestro;主音量;Volume général;ماسٹر والیوم;مستوى الصوت الرئيسي
 Dialogue Volume;Dialogue Volume;Volumen del diálogo;对话音量;Volume des dialogues;مکالمے کی آواز کی سطح;مستوى صوت الحوار
@@ -38,7 +37,7 @@ Display Mode;Display Mode;Modo de visualización;显示模式;Mode d'affichage;�
 Display Resolution;Display Resolution;Resolución de pantalla;显示分辨率;Résolution d'affichage;ڈسپلے ریزولیوشن;دقة العرض
 Vsync;Vsync;sincronización vertical;垂直同步;V-Sync;وی سنک;المزامنة الرأسية
 FPS Cap;FPS Cap;Límite de FPS;帧率上限;Limite d'IPS;ایف پی ایس کی حد;الحد الأقصى للإطارات في الثانية
-FPS Limit;FPS Limit;Límite de FPS;帧率限制;Plafonnement des IPS;ایف پی ایس کی حد;حد الإطارات في الثانية
-Graphics Quality;Graphics Quality;Graphics Quality;画质;Qualité graphique;گرافکس کا معیار;جودة الرسومات
-There is no outside to reach. ;There is no outside to reach. ;There is no outside to reach. ;没有可抵达的外部世界。;Il n'y a pas d'extérieur à atteindre.;باہر جانے کے لیے کوئی جگہ نہیں ہے۔;"لا يوجد ""خارج"" يمكن الوصول إليه."
-There is only one place to return to.;There is only one place to return to.;There is only one place to return to.;唯有一处可供归返。;Il n'y a qu'un seul endroit où retourner.;آگے بڑھنے کا صرف ایک ہی راستہ ہے۔;هناك مكان واحد فقط للعودة إليه.
+FPS Limit;FPS Limit;Límite de FPS;帧率限制;Limite d'IPS;ایف پی ایس کی حد;حد الإطارات في الثانية
+Graphics Quality;Graphics Quality;Calidad gráfica;画质;Qualité graphique;گرافکس کا معیار;جودة الرسومات
+There is no outside to reach. ;There is no outside to reach. ;No hay un afuera al que llegar. ;没有可抵达的外部世界。;Il n'y a pas d'extérieur à atteindre.;باہر جانے کے لیے کوئی جگہ نہیں ہے۔;"لا يوجد ""خارج"" يمكن الوصول إليه."
+There is only one place to return to.;There is only one place to return to.;Solo hay un lugar al que volver. ;唯有一处可供归返。;Il n'y a qu'un seul endroit où retourner.;واپس جانے کے لیے صرف ایک ہی جگہ ہے۔;هناك مكان واحد فقط للعودة إليه.
