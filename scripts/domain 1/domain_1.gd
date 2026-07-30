@@ -6,6 +6,7 @@ extends Node3D
 @onready var player: Player = $Player
 @onready var walk_tutorial: Label = $Cinematics/Tutorials/Walk
 @onready var look_around_tutorial: Label = $"Cinematics/Tutorials/Look Around"
+@onready var tutorials: Control = $Cinematics/Tutorials
 
 @export var WALK_PAUSE := false
 @export var LOOK_PAUSE := false
@@ -17,6 +18,10 @@ var finished: bool = false
 func _process(_delta: float) -> void:
 	if finished:
 		get_tree().change_scene_to_packed(DOMAIN_2)
+	if Shortcuts.show_tutorials:
+		tutorials.visible = true
+	else:
+		tutorials.visible = false
 	if !cutscene.is_playing() and WALK_PAUSE and player.CAN_CONTROL:
 		if player.position != Vector3(-3.193, 1.168, 0.393):
 			cutscene.play("tutpart2")

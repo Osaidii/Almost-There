@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dkedja36adh8d" path="res://scripts/domain 1/scare_check_domain_1.gd" id="5_lf0kl"]
 [ext_resource type="Texture2D" uid="uid://jiyrclk0y8q0" path="res://assets/Domain 1/scare_entity.png" id="6_lf0kl"]
 [ext_resource type="FontFile" uid="uid://c5ngj2wws5wgq" path="res://assets/Game Font.ttf" id="8_4wxng"]
+[ext_resource type="Script" uid="uid://bgpbnxwshd7j0" path="res://temp.gd" id="9_vju4q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wlb4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -515,6 +516,9 @@ _data = {
 &"tutpart3": SubResource("Animation_4afrj"),
 &"tutpart4": SubResource("Animation_usyge")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldelk"]
+size = Vector3(4.364685, 1, 10.27137)
 
 [node name="Domain 1" type="Node3D" unique_id=446684211]
 script = ExtResource("1_ua7vj")
@@ -2083,10 +2087,19 @@ text = "Use your Mouse to Look Around"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area3D" type="Area3D" parent="." unique_id=2074081106]
+transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1.0000001, 0, 1.0000001, 0, -4.371139e-08, 29.960758, 2.267, 110.71794)
+script = ExtResource("9_vju4q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=399719438]
+transform = Transform3D(1, 0, -2.8848035e-12, 0, 1, 0, 2.8848035e-12, 0, 1, -0.24691772, 0, -2.0916767)
+shape = SubResource("BoxShape3D_ldelk")
+
 [connection signal="body_entered" from="Part 1/Scare/Scare Check" to="Part 1/Scare" method="_on_scare_check_body_entered"]
 [connection signal="screen_entered" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="Part 2/Hallway 1/Delete Part 1" to="." method="_part_1_exited"]
 [connection signal="animation_finished" from="Cutscene" to="." method="_on_cutscene_animation_finished"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 
 [editable path="Player"]

@@ -354,8 +354,6 @@ scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../../Subtitles/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../Language/Button")
-disabled = true
-toggle_mode = false
 
 [node name="Language" type="Control" parent="Accesibility" unique_id=1977359665]
 anchors_preset = 0
