@@ -528,7 +528,6 @@ environment = SubResource("Environment_be7q5")
 
 [node name="Player" parent="." unique_id=989809469 instance=ExtResource("2_w6yah")]
 transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1.0000001, 0, 1.0000001, 0, -4.371139e-08, -3.193, 2.267, 0.393)
-SPEED = 14.0
 FLASH_LIGHT_UNLOCKED = false
 
 [node name="Part 1" type="Node3D" parent="." unique_id=266344266]

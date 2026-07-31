@@ -378,6 +378,7 @@ offset_right = 572.0
 offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../Show Tutorials/CheckBox")
 focus_neighbor_right = NodePath("../../../Close")
+disabled = true
 selected = 0
 item_count = 6
 popup/item_0/text = "English"

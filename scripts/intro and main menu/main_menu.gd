@@ -46,7 +46,7 @@ func _ready() -> void:
 	Transition.reset()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	new_game.grab_focus()
-	language_changed()
+	#language_changed()
 
 func _process(_delta: float) -> void:
 	if light.light_energy >= 0.9:

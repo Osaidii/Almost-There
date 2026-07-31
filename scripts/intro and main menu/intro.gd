@@ -17,7 +17,7 @@ const DOMAIN_1 = preload("res://scenes/domain_1.tscn") as PackedScene
 @onready var _10: Label = $"Cinematics/Subtitles/10"
 
 func _ready() -> void:
-	language_changed()
+	#language_changed()
 	Transition.reset()
 	await get_tree().create_timer(1.0).timeout
 	cutscene.play("foreshadowing")

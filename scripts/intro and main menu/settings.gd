@@ -65,7 +65,7 @@ func _ready() -> void:
 	if load_settings_needed:
 		load_settings()
 		load_settings_needed = false
-	language_changed()
+	#language_changed()
 
 func start_settings() -> void:
 	settings_fade.play_backwards("fade")
@@ -82,7 +82,7 @@ func load_settings() -> void:
 	_on_graphics_quality_item_selected(config.get_value("graphics", "quality"))
 	_on_subtitles_toggled(config.get_value("accesibility", "subtitles"))
 	_on_tutorials_toggled(config.get_value("accesibility", "tutorials"))
-	_on_language_item_selected(config.get_value("accesibility", "languages"))
+	#_on_language_item_selected(config.get_value("accesibility", "languages"))
 	_on_master_value_changed(config.get_value("audio", "master"))
 	_on_dialogue_value_changed(config.get_value("audio", "dialogue"))
 	_on_music_value_changed(config.get_value("audio", "music"))
@@ -149,7 +149,7 @@ func _on_default_pressed() -> void:
 	elif accesibility.visible == true:
 		_on_subtitles_toggled(default_config.get_value("accesibility", "subtitles"))
 		_on_tutorials_toggled(default_config.get_value("accesibility", "tutorials"))
-		_on_language_item_selected(default_config.get_value("accesibility", "languages"))
+		#_on_language_item_selected(default_config.get_value("accesibility", "languages"))
 	elif controls.visible == true:
 		set_key("forward", Key.KEY_W)
 		controls_first_button.text = "W"
@@ -283,9 +283,10 @@ func _on_language_item_selected(index: int) -> void:
 			Shortcuts.language = "ur"
 	accesibility_third_button.selected = index
 	ConfigFileHandler.setting_changed("accesibility", "languages", index)
-	language_changed()
+	#language_changed()
 	if get_tree().current_scene.scene_file_path == "res://ui/main_menu.scn":
-		$"../UI".language_changed()
+		#$"../UI".language_changed()
+		pass
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_1.scn":
 		pass
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_2.scn":
