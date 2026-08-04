@@ -12,4 +12,4 @@ The game revolvs around a person who arrives for a job interview in a lonely and
 A little bit of ai was used in the development of this game.  
 
 ## Local Development Setup
-If you would like to modify or open the project in the local development project, please refer to 
+If you would like to modify or open the project in the local development project, please refer to this [file](https://github.com/Osaidii/Almost-There/blob/main/LOCAL%20SETUP.md)
