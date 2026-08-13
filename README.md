@@ -3,6 +3,10 @@ A Horror Mystery Game in Production.
 The game revolvs around a person who arrives for a job interview in a lonely and eerie place. Suddenly, he faints and wakes up in a weird yellow place. He must find his way out.
 
 ### The Game is in Early Access.   
+![Image](https://cdn.hackclub.com/019ffc0c-957f-78dd-9c61-1916a15e72fb/screenshot_2026-08-13_185141.png)
+![Image](https://cdn.hackclub.com/019ffc0c-993a-7455-9204-6078f800eeb4/screenshot_2026-08-13_185205.png)
+![Image](https://cdn.hackclub.com/019ffc0c-9cb8-76a3-8310-167c6303d7e9/screenshot_2026-08-13_185242.png)
+![Image](https://cdn.hackclub.com/019ffc0c-a011-7e6d-a409-a731919cc6a3/screenshot_2026-08-13_185341.png)
 
 ## Controls
 1. WASD to Move. 
