@@ -273,6 +273,7 @@ offset_bottom = 28.0
 focus_neighbor_top = NodePath("../../FPS Limit/Button")
 focus_neighbor_right = NodePath("../../../Close")
 focus_neighbor_bottom = NodePath("../../../Default")
+disabled = true
 selected = 2
 item_count = 5
 popup/item_0/text = "Ultra High"
@@ -751,7 +752,6 @@ offset_bottom = 45.0
 focus_neighbor_left = NodePath("../Accesibility Button")
 focus_neighbor_top = NodePath("../../Close")
 focus_neighbor_right = NodePath("../Audio Button")
-disabled = true
 text = "Controls"
 
 [node name="Audio Button" type="Button" parent="Categories" unique_id=872360577]
@@ -786,13 +786,6 @@ libraries/ = SubResource("AnimationLibrary_yl6pr")
 [connection signal="toggled" from="Accesibility/Subtitles/CheckBox" to="." method="_on_subtitles_toggled"]
 [connection signal="toggled" from="Accesibility/Show Tutorials/CheckBox" to="." method="_on_tutorials_toggled"]
 [connection signal="item_selected" from="Accesibility/Language/Button" to="." method="_on_language_item_selected"]
-[connection signal="pressed" from="Controls/Forward/Button" to="." method="_on_forward_pressed"]
-[connection signal="pressed" from="Controls/Backward/Button" to="." method="_on_backward_pressed"]
-[connection signal="pressed" from="Controls/Left/Button" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Controls/Right/Button" to="." method="_on_right_pressed"]
-[connection signal="pressed" from="Controls/Flashlight/Button" to="." method="_on_flashlight_pressed"]
-[connection signal="pressed" from="Controls/Crouch/Button" to="." method="_on_crouch_pressed"]
-[connection signal="pressed" from="Controls/Interact/Button" to="." method="_on_interact_pressed"]
 [connection signal="value_changed" from="Audio/Master Volume/SliderBox" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/Dialogue Volume/SliderBox" to="." method="_on_dialogue_value_changed"]
 [connection signal="value_changed" from="Audio/Music Volume/SliderBox" to="." method="_on_music_value_changed"]

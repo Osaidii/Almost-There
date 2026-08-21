@@ -17,13 +17,6 @@ func _ready() -> void:
 		config_file.set_value("accesibility", "subtitles", true)
 		config_file.set_value("accesibility", "tutorials", true)
 		config_file.set_value("accesibility", "languages", 0)
-		config_file.set_value("controls", "forward", Key.KEY_W)
-		config_file.set_value("controls", "backward", Key.KEY_S)
-		config_file.set_value("controls", "left", Key.KEY_A)
-		config_file.set_value("controls", "right", Key.KEY_D)
-		config_file.set_value("controls", "flashlight", Key.KEY_F)
-		config_file.set_value("controls", "crouch", Key.KEY_C)
-		config_file.set_value("controls", "interact", Key.KEY_E)
 		config_file.set_value("audio", "master", 7)
 		config_file.set_value("audio", "dialogue", 7)
 		config_file.set_value("audio", "music", 7)
@@ -42,13 +35,6 @@ func _ready() -> void:
 		default_file.set_value("accesibility", "subtitles", true)
 		default_file.set_value("accesibility", "tutorials", true)
 		default_file.set_value("accesibility", "languages", 0)
-		default_file.set_value("controls", "forward", Key.KEY_W)
-		default_file.set_value("controls", "backward", Key.KEY_S)
-		default_file.set_value("controls", "left", Key.KEY_A)
-		default_file.set_value("controls", "right", Key.KEY_D)
-		default_file.set_value("controls", "flashlight", Key.KEY_F)
-		default_file.set_value("controls", "crouch", Key.KEY_C)
-		default_file.set_value("controls", "interact", Key.KEY_E)
 		default_file.set_value("audio", "master", 7)
 		default_file.set_value("audio", "dialogue", 7)
 		default_file.set_value("audio", "music", 7)
@@ -65,6 +51,3 @@ func files_are_equal() -> bool:
 func setting_changed(category: String, option: String, value) -> void:
 	config_file.set_value(category, option, value)
 	config_file.save(FILE_PATH)
-
-func load_settings() -> void:
-	pass

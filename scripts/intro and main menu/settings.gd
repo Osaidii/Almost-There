@@ -18,13 +18,6 @@ extends Control
 @onready var accesibility_first_button: CheckButton = $"../Settings/Accesibility/Subtitles/CheckBox"
 @onready var accesibility_second_button: CheckButton = $"../Settings/Accesibility/Show Tutorials/CheckBox"
 @onready var accesibility_third_button: OptionButton = $"../Settings/Accesibility/Language/Button"
-@onready var controls_first_button: Button = $Controls/Forward/Button
-@onready var controls_second_button: Button = $Controls/Backward/Button
-@onready var controls_third_button: Button = $Controls/Left/Button
-@onready var controls_fourth_button: Button = $Controls/Right/Button
-@onready var controls_fifth_button: Button = $Controls/Flashlight/Button
-@onready var controls_sixth_button: Button = $Controls/Crouch/Button
-@onready var controls_seventh_button: Button = $Controls/Interact/Button
 @onready var audio_first_button: HSlider = $"../Settings/Audio/Master Volume/SliderBox"
 @onready var audio_second_button: HSlider = $"../Settings/Audio/Dialogue Volume/SliderBox"
 @onready var audio_third_button: HSlider = $"../Settings/Audio/Music Volume/SliderBox"
@@ -40,17 +33,10 @@ extends Control
 @onready var label7: Label = $Accesibility/Subtitles/Label
 @onready var label8: Label = $"Accesibility/Show Tutorials/Label"
 @onready var label9: Label = $Accesibility/Language/Label
-@onready var label10: Label = $Controls/Forward/Label
-@onready var label11: Label = $Controls/Backward/Label
-@onready var label12: Label = $Controls/Left/Label
-@onready var label13: Label = $Controls/Right/Label
-@onready var label14: Label = $Controls/Flashlight/Label
-@onready var label15: Label = $Controls/Crouch/Label
-@onready var label16: Label = $Controls/Interact/Label
-@onready var label17: Label = $"Audio/Master Volume/Label"
-@onready var label18: Label = $"Audio/Dialogue Volume/Label"
-@onready var label19: Label = $"Audio/Music Volume/Label"
-@onready var label20: Label = $"Audio/SFX Volume/Label"
+@onready var label10: Label = $"Audio/Master Volume/Label"
+@onready var label11: Label = $"Audio/Dialogue Volume/Label"
+@onready var label12: Label = $"Audio/Music Volume/Label"
+@onready var label13: Label = $"Audio/SFX Volume/Label"
 
 var config := ConfigFile.new()
 var default_config := ConfigFile.new()
@@ -66,6 +52,9 @@ func _ready() -> void:
 		load_settings()
 		load_settings_needed = false
 	#language_changed()
+
+func _process(delta: float) -> void:
+	print("FPS: ", Engine.get_frames_per_second())
 
 func start_settings() -> void:
 	settings_fade.play_backwards("fade")
@@ -87,20 +76,6 @@ func load_settings() -> void:
 	_on_dialogue_value_changed(config.get_value("audio", "dialogue"))
 	_on_music_value_changed(config.get_value("audio", "music"))
 	_on_effects_value_changed(config.get_value("audio", "effects"))
-	set_key("forward", config.get_value("controls", "forward"))
-	controls_first_button.text = get_action_key_name("forward")
-	set_key("backward", config.get_value("controls", "backward"))
-	controls_first_button.text = get_action_key_name("backward")
-	set_key("left", config.get_value("controls", "left"))
-	controls_first_button.text = get_action_key_name("left")
-	set_key("right", config.get_value("controls", "right"))
-	controls_first_button.text = get_action_key_name("right")
-	set_key("flashlight", config.get_value("controls", "flashlight"))
-	controls_first_button.text = get_action_key_name("flashlight")
-	set_key("crouch", config.get_value("controls", "crouch"))
-	controls_first_button.text = get_action_key_name("crouch")
-	set_key("interact", config.get_value("controls", "interact"))
-	controls_first_button.text = get_action_key_name("interact")
 
 func _on_close_settings_pressed() -> void:
 	settings_fade.play("fade")
@@ -124,6 +99,7 @@ func _on_controls_pressed() -> void:
 	controls.visible = true
 	accesibility.visible = false
 	graphics.visible = false
+	default.visible = false
 
 func _on_audio_pressed() -> void:
 	audio.visible = true
@@ -150,21 +126,6 @@ func _on_default_pressed() -> void:
 		_on_subtitles_toggled(default_config.get_value("accesibility", "subtitles"))
 		_on_tutorials_toggled(default_config.get_value("accesibility", "tutorials"))
 		#_on_language_item_selected(default_config.get_value("accesibility", "languages"))
-	elif controls.visible == true:
-		set_key("forward", Key.KEY_W)
-		controls_first_button.text = "W"
-		set_key("backward", Key.KEY_S)
-		controls_second_button.text = "S"
-		set_key("left", Key.KEY_A)
-		controls_third_button.text = "A"
-		set_key("right", Key.KEY_D)
-		controls_fourth_button.text = "D"
-		set_key("flashlight", Key.KEY_F)
-		controls_fifth_button.text = "F"
-		set_key("crouch", Key.KEY_W)
-		controls_sixth_button.text = "C"
-		set_key("interact", Key.KEY_E)
-		controls_seventh_button.text = "E"
 
 # Graphics Settings
 func _on_display_mode_item_selected(index: int) -> void:
@@ -215,9 +176,11 @@ func _on_fps_cap_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		graphics_fifth_button.disabled = false
 		fps_cap_enabled = true
+		##Engine.max_fps = #### set to index of fps limit item selected
 	if !toggled_on:
 		graphics_fifth_button.disabled = true
 		fps_cap_enabled = false
+		Engine.max_fps = 0
 	graphics_fourth_button.button_pressed = toggled_on
 	ConfigFileHandler.setting_changed("graphics", "fpscap", toggled_on)
 
@@ -294,33 +257,6 @@ func _on_language_item_selected(index: int) -> void:
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_3.scn":
 		pass
 
-# Control Settings
-func _on_forward_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_backward_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_left_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_right_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_flashlight_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_crouch_pressed() -> void:
-	controls_first_button.text = "..."
-
-func _on_interact_pressed() -> void:
-	controls_seventh_button.text = "..."
-
-func set_key(action: String, key) -> void:
-	var event = InputEventKey.new()
-	event.physical_keycode = key
-	InputMap.action_add_event(action, event)
-
 func get_action_key_name(action: String) -> String:
 	var events = InputMap.action_get_events(action)
 	var event := events[0] as InputEventKey
@@ -387,17 +323,10 @@ func language_changed() -> void:
 	label7.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 33)
 	label8.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 34)
 	label9.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 35)
-	label10.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 21)
-	label11.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 22)
-	label12.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 23)
-	label13.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 24)
-	label14.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 25)
-	label15.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 26)
-	label16.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 27)
-	label17.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 29)
-	label18.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 30)
-	label19.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 31)
-	label20.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 32)
+	label10.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 29)
+	label11.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 30)
+	label12.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 31)
+	label13.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 32)
 	audio_button.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 20)
 	graphics_button.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 17)
 	accesibility_button.text = Shortcuts.read_from_translations_csv(Shortcuts.language, 18)

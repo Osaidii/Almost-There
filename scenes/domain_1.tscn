@@ -2086,11 +2086,11 @@ text = "Use your Mouse to Look Around"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area3D" type="Area3D" parent="." unique_id=2074081106]
+[node name="CHANGE TO CREDITS" type="Area3D" parent="." unique_id=2074081106]
 transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1.0000001, 0, 1.0000001, 0, -4.371139e-08, 29.960758, 2.267, 110.71794)
 script = ExtResource("9_vju4q")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=399719438]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CHANGE TO CREDITS" unique_id=399719438]
 transform = Transform3D(1, 0, -2.8848035e-12, 0, 1, 0, 2.8848035e-12, 0, 1, -0.24691772, 0, -2.0916767)
 shape = SubResource("BoxShape3D_ldelk")
 
@@ -2099,6 +2099,6 @@ shape = SubResource("BoxShape3D_ldelk")
 [connection signal="screen_exited" from="Part 1/Scare/VisibleOnScreenNotifier3D" to="Part 1/Scare" method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="Part 2/Hallway 1/Delete Part 1" to="." method="_part_1_exited"]
 [connection signal="animation_finished" from="Cutscene" to="." method="_on_cutscene_animation_finished"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="CHANGE TO CREDITS" to="CHANGE TO CREDITS" method="_on_body_entered"]
 
 [editable path="Player"]
