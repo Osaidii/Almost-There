@@ -27,7 +27,7 @@ var vignette_border: float
 
 func read_from_translations_csv(passed_language: String, line: int) -> String:
 	var answer: String
-	var file = FileAccess.open("res://storage/translations.dat", FileAccess.READ)
+	var file = FileAccess.open("res://storage/translations.csv", FileAccess.READ)
 	var language_number: int
 	match passed_language:
 		"en":

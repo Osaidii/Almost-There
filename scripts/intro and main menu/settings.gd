@@ -43,6 +43,7 @@ var default_config := ConfigFile.new()
 var fps_cap_enabled := false
 var load_settings_needed := false
 enum ACTIONS {Forward, Backward, Left, Right, Flashlight, Crouch}
+var max_fps: int
 
 func _ready() -> void:
 	var path = config.load("user://settings.ini")
@@ -51,10 +52,7 @@ func _ready() -> void:
 	if load_settings_needed:
 		load_settings()
 		load_settings_needed = false
-	#language_changed()
-
-func _process(delta: float) -> void:
-	print("FPS: ", Engine.get_frames_per_second())
+	language_changed()
 
 func start_settings() -> void:
 	settings_fade.play_backwards("fade")
@@ -71,11 +69,11 @@ func load_settings() -> void:
 	_on_graphics_quality_item_selected(config.get_value("graphics", "quality"))
 	_on_subtitles_toggled(config.get_value("accesibility", "subtitles"))
 	_on_tutorials_toggled(config.get_value("accesibility", "tutorials"))
-	#_on_language_item_selected(config.get_value("accesibility", "languages"))
+	_on_language_item_selected(config.get_value("accesibility", "language"))
 	_on_master_value_changed(config.get_value("audio", "master"))
 	_on_dialogue_value_changed(config.get_value("audio", "dialogue"))
 	_on_music_value_changed(config.get_value("audio", "music"))
-	_on_effects_value_changed(config.get_value("audio", "effects"))
+	_on_effects_value_changed(config.get_value("audio", "sfx"))
 
 func _on_close_settings_pressed() -> void:
 	settings_fade.play("fade")
@@ -112,7 +110,7 @@ func _on_default_pressed() -> void:
 		_on_master_value_changed(default_config.get_value("audio", "master"))
 		_on_dialogue_value_changed(default_config.get_value("audio", "dialogue"))
 		_on_music_value_changed(default_config.get_value("audio", "music"))
-		_on_effects_value_changed(default_config.get_value("audio", "effects"))
+		_on_effects_value_changed(default_config.get_value("audio", "sfx"))
 	elif graphics.visible == true:
 		_on_display_mode_item_selected(default_config.get_value("graphics", "mode"))
 		_on_display_reso_item_selected(default_config.get_value("graphics", "resolution"))
@@ -125,7 +123,7 @@ func _on_default_pressed() -> void:
 	elif accesibility.visible == true:
 		_on_subtitles_toggled(default_config.get_value("accesibility", "subtitles"))
 		_on_tutorials_toggled(default_config.get_value("accesibility", "tutorials"))
-		#_on_language_item_selected(default_config.get_value("accesibility", "languages"))
+		_on_language_item_selected(default_config.get_value("accesibility", "language"))
 
 # Graphics Settings
 func _on_display_mode_item_selected(index: int) -> void:
@@ -176,7 +174,7 @@ func _on_fps_cap_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		graphics_fifth_button.disabled = false
 		fps_cap_enabled = true
-		##Engine.max_fps = #### set to index of fps limit item selected
+		Engine.max_fps = max_fps
 	if !toggled_on:
 		graphics_fifth_button.disabled = true
 		fps_cap_enabled = false
@@ -186,15 +184,16 @@ func _on_fps_cap_toggled(toggled_on: bool) -> void:
 
 func _on_fps_limit_item_selected(index: int) -> void:
 	if index == 0:
-		Engine.max_fps = 180
+		max_fps = 180
 	elif index == 1:
-		Engine.max_fps = 144
+		max_fps = 144
 	elif index == 2:
-		Engine.max_fps = 120
+		max_fps = 120
 	elif index == 3:
-		Engine.max_fps = 60
+		max_fps = 60
 	elif index == 4:
-		Engine.max_fps = 30
+		max_fps = 30
+	Engine.max_fps = max_fps
 	graphics_fifth_button.selected = index
 	ConfigFileHandler.setting_changed("graphics", "fpslimit", index)
 
@@ -234,6 +233,7 @@ func _on_language_item_selected(index: int) -> void:
 	match index:
 		0:
 			Shortcuts.language = "en"
+			
 		1:
 			Shortcuts.language = "es"
 		2:
@@ -245,11 +245,10 @@ func _on_language_item_selected(index: int) -> void:
 		5:
 			Shortcuts.language = "ur"
 	accesibility_third_button.selected = index
-	ConfigFileHandler.setting_changed("accesibility", "languages", index)
-	#language_changed()
+	ConfigFileHandler.setting_changed("accesibility", "language", index)
+	language_changed()
 	if get_tree().current_scene.scene_file_path == "res://ui/main_menu.scn":
-		#$"../UI".language_changed()
-		pass
+		$"../UI".language_changed()
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_1.scn":
 		pass
 	elif get_tree().current_scene.scene_file_path == "res://ui/domain_2.scn":

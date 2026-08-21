@@ -16,11 +16,11 @@ func _ready() -> void:
 		config_file.set_value("graphics", "quality", 1)
 		config_file.set_value("accesibility", "subtitles", true)
 		config_file.set_value("accesibility", "tutorials", true)
-		config_file.set_value("accesibility", "languages", 0)
+		config_file.set_value("accesibility", "language", 0)
 		config_file.set_value("audio", "master", 7)
 		config_file.set_value("audio", "dialogue", 7)
 		config_file.set_value("audio", "music", 7)
-		config_file.set_value("audio", "effects", 7)
+		config_file.set_value("audio", "sfx", 7)
 		config_file.save(FILE_PATH)
 	else:
 		config_file.load(FILE_PATH)
@@ -34,11 +34,11 @@ func _ready() -> void:
 		default_file.set_value("graphics", "quality", 1)
 		default_file.set_value("accesibility", "subtitles", true)
 		default_file.set_value("accesibility", "tutorials", true)
-		default_file.set_value("accesibility", "languages", 0)
+		default_file.set_value("accesibility", "language", 0)
 		default_file.set_value("audio", "master", 7)
 		default_file.set_value("audio", "dialogue", 7)
 		default_file.set_value("audio", "music", 7)
-		default_file.set_value("audio", "effects", 7)
+		default_file.set_value("audio", "sfx", 7)
 		default_file.save(DEFAULT_FILE_PATH)
 
 func files_are_equal() -> bool:
